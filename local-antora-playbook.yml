@@ -7,7 +7,7 @@ content:
     - url: ./
       branches: main
       start_path: docs
-    - url: https://github.com/seedwing-io/seedwing-policy.git
+    - url: ../seedwing-policy
       branches: main
       start_paths:
         - faq
