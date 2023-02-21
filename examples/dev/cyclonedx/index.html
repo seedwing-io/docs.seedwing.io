@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CycloneDX :: Seedwing</title>
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">Seedwing</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="examples" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Examples</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">CycloneDX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Examples</span>
+    <span class="version">dev</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../cli/dev/index.html">CLI</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../cli/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../dogma/dev/index.html">Dogma</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../dogma/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Examples</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../faq/dev/index.html">FAQ</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../faq/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../docs/index.html">Overview</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../docs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../server/dev/index.html">Server</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../server/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../docs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Examples</a></li>
+    <li><a href="index.html">CycloneDX</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/examples/modules/cyclonedx/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">CycloneDX</h1>
+<div class="sect1">
+<h2 id="_checking_that_a_payload_is_a_valid_cyclonedx_document"><a class="anchor" href="#_checking_that_a_payload_is_a_valid_cyclonedx_document"></a>Checking that a payload is a valid CycloneDX document</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use the existing pattern <code>cyclonedx::v1_4::bom</code> for that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST -H "Content-type: application/json" \
+  -d @bom.json \
+  http://localhost:8080/policy/cyclonedx/v1_4/</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_check_that_there_are_no_security_vulnerabilities_in_your_sbom"><a class="anchor" href="#_check_that_there_are_no_security_vulnerabilities_in_your_sbom"></a>Check that there are no security vulnerabilities in your SBOM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given an example SBOM like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.2",
+  "serialNumber": "urn:uuid:b4f2954f-a96d-4578-9509-1ae2d6476209",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2020-08-02T21:27:04Z",
+    "tools": [{
+      "vendor": "CycloneDX",
+      "name": "CycloneDX Maven plugin",
+      "version": "2.0.2"
+    }]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/log4j/log4j@1.2.17?type=jar",
+      "publisher": "Apache Software Foundation",
+      "group": "log4j",
+      "name": "log4j",
+      "version": "1.2.17",
+      "description": "Apache Log4j 1.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1d31696445697720527091754369082a6651bd49781b6005deb94e56753406f9"
+        }
+      ],
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "purl": "pkg:maven/log4j/log4j@1.2.17?type=jar",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "http://www.apache.org"
+        },
+        {
+          "type": "build-system",
+          "url": "http://vmgump.apache.org/gump/public/logging-log4j-12/logging-log4j-12/index.html"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://issues.apache.org/bugzilla/describecomponents.cgi?product=Log4j"
+        },
+        {
+          "type": "mailing-list",
+          "url": "http://mail-archives.apache.org/mod_mbox/logging-log4j-user/"
+        },
+        {
+          "type": "vcs",
+          "url": "http://svn.apache.org/viewvc/logging/log4j/tags/v1_2_17_rc3"
+        }
+      ]
+    }
+ ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can construct a pattern that checks all package URLs in this SBOM for vulnerabilities:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">/// For a given CycloneDX SBOM, check if any of the
+/// component package URLs for vulnerabilities and
+/// produce an OpenVEX document for it.
+pattern not-affected =
+  cyclonedx::component-purls
+  | lang::map&lt;uri::purl&gt;
+  | lang::map&lt;osv::from-purl&gt;
+  | lang::map&lt;openvex::from-osv&gt;
+  | list::none&lt;openvex::affected&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can validate this SBOM against Seedwing using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST -H "Content-type: application/json" \
+  -d @bom.json \
+  http://localhost:8080/policy/vuln/not-affected</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

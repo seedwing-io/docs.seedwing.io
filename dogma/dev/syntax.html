@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Seedwing</title>
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Seedwing</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="dogma" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Dogma</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="foundational-concepts.html">Foundational Concepts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="syntax.html">General Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="primordial.html">Primordial Types</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dogma</span>
+    <span class="version">dev</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../cli/dev/index.html">CLI</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../cli/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">Dogma</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../examples/dev/index.html">Examples</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../examples/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../faq/dev/index.html">FAQ</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../faq/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../docs/index.html">Overview</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../docs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../server/dev/index.html">Server</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../server/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../docs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Dogma</a></li>
+    <li><a href="syntax.html">General Syntax</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/dogma/modules/ROOT/pages/syntax.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_basic_syntax"><a class="anchor" href="#_basic_syntax"></a>Basic Syntax</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dog_files"><a class="anchor" href="#_dog_files"></a><code>.dog</code> Files</h3>
+<div class="paragraph">
+<p>In general, patterns are authored in plaintext UTF-8 files with the suffix of <code>.dog</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delimiters_whitespace"><a class="anchor" href="#_delimiters_whitespace"></a>Delimiters &amp; Whitespace</h3>
+<div class="paragraph">
+<p>First, Dogma does not require a semicolon (<code>;</code>) or any other statement-ending marker.
+Line delimeters are non-notable.
+Trailing commas are allowed in any comma-delimited sequence.
+Generally, whitespace is also non-notable and does not affect the definition of a pattern.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments"><a class="anchor" href="#_comments"></a>Comments</h3>
+<div class="paragraph">
+<p>Single-line comments are supported using <code>//</code> and elide everything until the end of the line.
+Documentation comments may be applied to patterns using <code>///</code> and should be marked up using <a href="https://asciidoc.org/">AsciiDoc</a> format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_file_structure"><a class="anchor" href="#_file_structure"></a>File Structure</h3>
+<div class="paragraph">
+<p>There are two primary top-level "statements" in the Dogma language:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>use</code> statements, which import other patterns into visible scope.</p>
+</li>
+<li>
+<p><code>pattern</code> definitions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The general structure of a given <code>.dog</code> file is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">use ...
+use ...
+use ...
+
+pattern ...
+pattern ...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_directory_structure"><a class="anchor" href="#_directory_structure"></a>Directory Structure</h3>
+<div class="paragraph">
+<p>When a directory is provided as a policy library, the directory will be traversed and all files with the extension of <code>.dog</code> will be parsed, compiled, and made available as evaluatable policies.</p>
+</div>
+<div class="paragraph">
+<p>From the root library directory, the organizational structure of the directories is reflected in both the names of the policies, and the URLs through which they are exposed if using the <code>seedwing-policy-server</code>.</p>
+</div>
+<div class="paragraph">
+<p>For instance, if the directory <code>./policies/</code> is used as the root and contains the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">policies/
+  productization/
+    build.dog
+    promote.dog
+  sre/
+    deploy.dog</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>productization/build.dog</code> file will contain policies that end up in the <code>productization::build::</code> package, while the <code>sre/deploy.dog</code> will result in policies existing in the package of <code>sre::deploy::</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_statements"><a class="anchor" href="#_use_statements"></a><code>use</code> statements</h3>
+<div class="paragraph">
+<p>The <code>use</code> statement brings other packages into visible scope.
+The usage of <code>use</code> statements is not required, as all patterns are always addressable using their fully-qualified package-prefixed names.
+The <code>use</code> statement allows importing as a simple name (assuming no conflicts), or importing as a <em>different</em> name to avoid conflicts.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently only full patterns can be imported using <code>use</code> statements, not packages.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_simple_use"><a class="anchor" href="#_simple_use"></a>Simple <code>use</code></h4>
+<div class="paragraph">
+<p>The simplest <code>use</code> statement brings a type into visible scope for use by its simple name.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">use list::all
+use sre::deploy::allowed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Within a pattern defined in the same file, referencing these two imports is possible using purely their tail-end simple name of <code>all</code> and <code>allowed</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_use_as_variant"><a class="anchor" href="#_the_use_as_variant"></a>The <code>use &#8230;&#8203; as &#8230;&#8203;</code> variant</h4>
+<div class="paragraph">
+<p>In the event a policy author wants to <code>use</code> two different patterns that share a simple name, an <code>as &#8230;&#8203;</code> suffix is allowed to rename the pattern <em>in this file only</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">use productization::build::allowed as build-allowed
+use productization::promote::allowed as promote-allowed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These two patterns can now be used unambiguous as <code>build-allowed</code> and <code>promote-allowed</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_patterns"><a class="anchor" href="#_patterns"></a>Patterns</h3>
+<div class="paragraph">
+<p>Patterns define named type patterns that ultimately end up being policies.</p>
+</div>
+<div class="paragraph">
+<p>Patterns are defined using the <code>pattern</code> keyword, followed by the name of the pattern, followed by an equal sign (<code>=</code>) and then the definition of the pattern.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Patterns and functions can be quite flexibly named.
+They may include alphanumeric characters, underscores (<code>_</code>) and dashes (<code>-</code>).
+Functions, by convention, start with a capital letter, while pattern identifiers start with a lowercase letter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Every pattern is built up from other patterns.
+It&#8217;s turtles all the way down, until you reach the <em>primordial</em> types and patterns.</p>
+</div>
+<div class="sect3">
+<h4 id="_simple_primordial_type_based_patterns"><a class="anchor" href="#_simple_primordial_type_based_patterns"></a>Simple Primordial type-based Patterns</h4>
+<div class="paragraph">
+<p>The simplest pattern is one that match a <a href="./primordial">primordial</a> <em>type</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern all-the-things = anything
+pattern a-string = string
+pattern some-integer = integer
+pattern true-or-false = boolean</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In all four cases, these simple patterns really only define an <strong>alias</strong> to the right-hand-side of the pattern definition.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_simple_primordial_value_based_patterns"><a class="anchor" href="#_simple_primordial_value_based_patterns"></a>Simple Primordial value-based Patterns</h4>
+<div class="paragraph">
+<p>One step beyond specifying that a pattern matches <em>all</em> integers, string or booleans is restricting which set of integers, strings and booleans it may match.</p>
+</div>
+<div class="paragraph">
+<p>When the answer is "exactly this one string" or "this exact number", then using value-esque primordial patterns is useful.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern bob-and-only-bob = "bob"
+pattern the-number-forty-two = 42</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_object_shaped_patterns"><a class="anchor" href="#_object_shaped_patterns"></a>Object-shaped Patterns</h4>
+<div class="paragraph">
+<p>Patterns that match object-shaped input values (useful for applying policy to a JSON object) are defined using <code>{</code> and <code>}</code> with field patterns within.</p>
+</div>
+<div class="paragraph">
+<p>A field pattern includes a field name (without quotes, unlike JSON), a colon (<code>:</code>) and the field&#8217;s own pattern to match against the input field value.</p>
+</div>
+<div class="paragraph">
+<p>If the field name has a suffix of <code>?</code>, the field is considered <em>optional</em>.
+If an optional field is not present, the containing object-shaped pattern may continue to satisfy and result in a positive decision.
+If an option field <em>is</em> present, then it <strong>must</strong> match the specified target pattern.</p>
+</div>
+<div class="paragraph">
+<p>A simple object pattern that matches any object that has at least a single field named <code>version</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern versioned = {
+  version: anything
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above specifies that to match, the input value must have a the <code>version</code> field, but that field can be <em>anything</em>; a string, a piece of chalk, a mustache, whatever.</p>
+</div>
+<div class="paragraph">
+<p>Object patterns do not fail if additional fields are submitted in the input value.</p>
+</div>
+<div class="paragraph">
+<p>For instance, the <code>versioned</code> pattern will succeed even if the input data is this JSON:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "seedwing-policy-server",
+  "version": "8.2.0",
+  "authors": [ "bob", "ulf", "jim", "jens" ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of course, field-level patterns can also specify more distinct patterns than simply <code>anything</code>.
+Additionally, they may specify as many fields as necessary.
+Since object-shaped patterns are patterns, nesting is fully supported.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern versioned = {
+  version: {
+    major: integer,
+    minor: integer,
+    patch?: integer,
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This pattern would match this input:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "seedwing-policy-server",
+  "version": {
+    "major": 8,
+    "minor": 2,
+    "patch": 0
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and this input</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "seedwing-policy-server",
+  "version": {
+    "major": 8,
+    "minor": 2
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>but it would not match</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "name": "seedwing-policy-server",
+  "version": {
+    "major": 8,
+    "minor": 2,
+    "patch": "of course I patch my stuff"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_list_based_patterns"><a class="anchor" href="#_list_based_patterns"></a>List-based Patterns</h4>
+<div class="paragraph">
+<p>List-based patterns are dependent on the content and the <em>sequence</em> of items contained within the input value.</p>
+</div>
+<div class="paragraph">
+<p>A list pattern is constructed using <code>[</code> and <code>]</code>, with a sequence of types denoting which patterns each term should satisfy.</p>
+</div>
+<div class="paragraph">
+<p>Just as with strings matching a specific sequence of characters, a list pattern matches a sequence of items, aligned to the terms within the pattern.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lists may be somewhat counter-intuitive if you&#8217;re familiar with type syntax from other languages</p>
+</div>
+<div class="paragraph">
+<p>For instance, <code>pattern list-of-numbers = [ integer ]</code> actually only defines a pattern that matches a list with exactly a single integer value.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If an input value is expected to contain three strings, in a given order, the relevant pattern might look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern list-of-names = [ "bob", "ulf", "jim" ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This would then match</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[ "bob", "ulf", "jim" ]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But it would not match a permutation of that input:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[ "jim", "ulf", "bob"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lists as primary patterns may not represent a large amount of functionality, but they are useful when working with parameterized items, described below.</p>
+</div>
+<div class="paragraph">
+<p>There are <a href="/policy/list/">core language functions</a> available to work with lists in a more comprehensive way.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logical_expressions"><a class="anchor" href="#_logical_expressions"></a>Logical Expressions</h4>
+<div class="paragraph">
+<p>Given that a pattern only worries about the bits of an input that it can decide upon, it&#8217;s useful to combine multiple patterns to each separately evaluate their subset of the input.</p>
+</div>
+<div class="paragraph">
+<p>If we had two distinct patterns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern named = {
+  name: string,
+}
+
+pattern versioned = {
+  version: {
+    major: integer,
+    minor: integer,
+    patch?: integer,
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can construct a pattern that ensures that <strong>both</strong> patterns are satisfied by the same input value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern named-and-versions = named &amp;&amp; versioned</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Likewise, we can construct a pattern that could be satisfied by matching at least one of several distinct patterns.</p>
+</div>
+<div class="paragraph">
+<p>Rewriting the <code>versioned</code> pattern, we could support an object-shaped version input, or a simple string:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern versioned = {
+  version: string || {
+    major: integer,
+    minor: integer,
+    patch?: integer,
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Short-circuiting applies to <code>||</code>, as a success is a success.
+Short-circuiting does not apply to <code>&amp;&amp;</code>, so that all viable failures can be detected early, instead of piece-meal.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_expression_types"><a class="anchor" href="#_expression_types"></a>Expression Types</h4>
+<div class="paragraph">
+<p>Some patterns need to match <em>uncountable sets</em>.
+This includes things such as "all numbers greater than 42".
+It would be impossible to construct a concrete set of all numbers greater than <strong>42</strong>.</p>
+</div>
+<div class="paragraph">
+<p><em>Expression types</em> allow for defining types using basic arithmetic expressions.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The expression langauge may grow or shrink; we are still iterating.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Expression types are denoted by the <code>$(</code> prefix and the <code>)</code> suffix.</p>
+</div>
+<div class="sect4">
+<h5 id="_the_self_keyword"><a class="anchor" href="#_the_self_keyword"></a>The <code>self</code> keyword</h5>
+<div class="paragraph">
+<p>Within an expression type, the <code>self</code> keyword refers to the input value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern alpha-sofware = {
+  version: {
+    major: $(self &lt; 1),
+    minor: integer,
+    patch?: integer,
+  }
+}
+
+pattern patched-software = {
+  version: {
+    patch: $(self &gt; 0)
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_traversals"><a class="anchor" href="#_traversals"></a>Traversals</h4>
+<div class="paragraph">
+<p>A traversal looks not unlike dot-notation in object-oriented languages to navigate within an object.
+When combining patterns, traversals provide a terser way of specifying details for small portions of a larger type.</p>
+</div>
+<div class="paragraph">
+<p>For instance, if we have a <code>versioned</code> type as before:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern versioned = {
+  version: string || {
+    major: integer,
+    minor: integer,
+    patch?: integer,
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can use traversals to apply additional patterns when mixed with <code>&amp;&amp;</code> to match all things that both match <code>versioned</code> <em>and</em> contain the optional <code>patch</code> field.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern patched = versioned &amp;&amp; self.version.patch</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_the_self_keyword_2"><a class="anchor" href="#_the_self_keyword_2"></a>The <code>self</code> keyword</h5>
+<div class="paragraph">
+<p>Within a traversal, the <code>self</code> keyword once again refers to the input value.
+Navigation to deeper levels uses the dot (<code>.</code>) and nested field names.
+If traversing does not succeed, it is considered to fail matching.
+Traversals (and all types) are combinable with <em>refinements</em> described below.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_refinements"><a class="anchor" href="#_refinements"></a>Refinements</h4>
+<div class="paragraph">
+<p>While the above simply tested for the existance of a given field, sometimes we want to <strong>refine</strong> the acceptability of a field.</p>
+</div>
+<div class="paragraph">
+<p>The <em>refinement</em> construct allows applying additional patterns to the value <em>at that point in the evaluation</em>.
+Refinements are specified using parentheses as a postfix to any other type.</p>
+</div>
+<div class="paragraph">
+<p>Within the parentheses, any pattern can be specified to further restrict viable values.</p>
+</div>
+<div class="paragraph">
+<p>If we want to match <code>versioned</code> items where the <code>major</code> field has more constraints than simply <code>integer</code>, we could write combining pattern, without having to recopy the entire <code>versioned</code> pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern version-nine = versioned &amp;&amp; self.version.major(9)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This also demonstrates that the <code>self.version.major</code> is not only testing for existance, but after being evaluated, the input value under consideration is the result of having made the traversal.</p>
+</div>
+<div class="paragraph">
+<p>Refinements are also useful when working with <em>functions</em>, described below.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h4>
+<div class="paragraph">
+<p><em>Functions</em> are another construct that effectively work as types.
+Unlike simpler pattern types, the output of the function can be not only the identity (or failure), but can be a different transformed value.</p>
+</div>
+<div class="paragraph">
+<p>Like traversals, the function construct takes the input value under consideration as an implicit argument, does <strong>whatever it wants to do</strong>, and produces a result, which roughly boils down to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Identity: the same value that came in popped out the far side</p>
+</li>
+<li>
+<p>Transform: the value that came in was transformed/replaced with a different value on the far side</p>
+</li>
+<li>
+<p>None: the value that came in failed to produce the identity or a transformed value, thus the function fails to match.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Within the core library is, for instance, a <code>Base64</code> function, which expects a <code>string</code> input, and if it can successfully decode the string as a base64 entity, produces the decoded <em>octets</em> as the output.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern base64encoded = Base64</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This pattern would accept the following JSON as valid input:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"U2VlZHdpbmcgaXMgYXdlc29tZSE="</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the output would be octets underlying <code>Seedwing is awesome!</code>.</p>
+</div>
+<div class="paragraph">
+<p>Functions can be refined using the parenthesis notation described above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern base64-seedwing = Base64("Seedwing is awesome!")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This pattern will only accept the input of <code>U2VlZHdpbmcgaXMgYXdlc29tZSE=</code> and all other base64-encoded strings will fail.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parameterized_patterns"><a class="anchor" href="#_parameterized_patterns"></a>Parameterized Patterns</h3>
+<div class="paragraph">
+<p>So far all patterns have been standalone and independent, other than the components that comprise them.</p>
+</div>
+<div class="paragraph">
+<p>Patterns may be written in a parameterized style, to allow specialization <em>at the site of usage</em> rather than at the point of definition.</p>
+</div>
+<div class="paragraph">
+<p>Parameters are defined using <code>&lt;</code> and <code>&gt;</code> after the name of the pattern when defining it, and once again arguments are passed to patterns using the same notation when used.</p>
+</div>
+<div class="paragraph">
+<p>An example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern named&lt;NAME&gt; = {
+  name: NAME
+}
+
+pattern named-bob-or-jim = named&lt;"bob"&gt; || named&lt;"jim"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Parameters can be <em>any type or pattern</em>; they are not required to be value-esque types or patterns.</p>
+</div>
+<div class="paragraph">
+<p>For instance, the logical <code>||</code> operator is actually syntactic sugar for <code>lang::or&lt;TERMS&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>This next two patterns are semantically and implementationally identical:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern sugared = something-borrowed || something-blue
+
+pattern unsugared = lang::or&lt;[ something-borrowed, something-blue ]&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here we finally discover where <strong>lists</strong> (described above) become useful.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dereferencing_a_k_a_eager_evaluation"><a class="anchor" href="#_dereferencing_a_k_a_eager_evaluation"></a>Dereferencing (a.k.a. <em>Eager Evaluation</em>)</h3>
+<div class="paragraph">
+<p>Given that patterns are first-class constructs, passing them as parameters can sometimes be problematic.</p>
+</div>
+<div class="paragraph">
+<p>Consider this pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern people = lang::or&lt;data::from&lt;"people.json"&gt;&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And this <code>people.json</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  "bob",
+  "jim"
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Initially, we think this might be equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern people = lang::or[ "bob", "jim" ]&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But alas, it is not.
+Instead of receiving the array of people that <code>data::from&lt;&#8230;&#8203;&gt;</code> provides, it receives the <em>actual type</em> <code>data::from&lt;&#8230;&#8203;&gt;</code>.
+That type has not yet been evaluated to provide the underlying data.
+The <code>lang::or&lt;&#8230;&#8203;&gt;</code> function expects a list-shaped type with terms to be <em>or</em>'d together.
+Instead, it&#8217;s receiving the function type underlying <code>data::from&lt;&#8230;&#8203;&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>To resolve a type against the input <em>prior</em> to passing it as a parameter, the dereference/eager-evaluation operator is used: <code>*</code>.
+By placing a <code>*</code> as a prefix to a type, it will be evaluated, and the resulting value is then treated as a type and passed further.</p>
+</div>
+<div class="paragraph">
+<p>The pattern that behaves the way one might expect looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">pattern people = lang::or&lt;*data::from&lt;"people.json"&gt;&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now indeed the <code>lang::or</code> will received a list-ish type full of string-ish types (the values <code>bob</code> and <code>jim</code>) and perform as expected.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
