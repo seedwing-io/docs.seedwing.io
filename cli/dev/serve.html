@@ -57,7 +57,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">General Usage</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -66,7 +66,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="eval.html"><code>eval</code></a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="serve.html"><code>serve</code></a>
   </li>
 </ul>
@@ -140,10 +140,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">CLI</a></li>
-    <li><a href="index.html">General Usage</a></li>
+    <li><a href="serve.html"><code>serve</code></a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/serve.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -151,45 +151,25 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_seedwing_policy_cli"><a class="anchor" href="#_seedwing_policy_cli"></a>Seedwing Policy CLI</h2>
+<h2 id="_serve"><a class="anchor" href="#_serve"></a><code>serve</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Seedwing Policy CLI provides access to the functionality of the Seedwing Policy Engine without requiring access to a running Policy Server.</p>
-</div>
-<div class="paragraph">
-<p>The primary command is <code>swio</code>, derived from the domain of <code>seedwing.io</code>.</p>
+<p>The <code>serve</code> launches a self-contained API and user-interface server for inspecting and evaluating policies.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_usage"><a class="anchor" href="#_general_usage"></a>General Usage</h3>
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
 <div class="sect3">
-<h4 id="_policy_directories_p_dir"><a class="anchor" href="#_policy_directories_p_dir"></a>Policy Directories: <code>-p &lt;DIR&gt;</code></h4>
+<h4 id="_bind_address_b_bind"><a class="anchor" href="#_bind_address_b_bind"></a>Bind address: <code>-b &lt;BIND&gt;</code></h4>
 <div class="paragraph">
-<p>Zero or more policy directories may be specified using the <code>-p &lt;DIR&gt;</code> argument.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_data_directories_d_dir"><a class="anchor" href="#_data_directories_d_dir"></a>Data Directories: <code>-d &lt;DIR&gt;</code></h4>
-<div class="paragraph">
-<p>Zero or more data directories may be specified using the <code>-d &lt;DIR&gt;</code> argument.</p>
+<p>The <code>-b &lt;BIND&gt;</code> argument specifies the hostname or IP address to bind to.
+Defaults to <code>0.0.0.0</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_commands"><a class="anchor" href="#_commands"></a>Commands</h4>
+<h4 id="_listen_port_p_port"><a class="anchor" href="#_listen_port_p_port"></a>Listen port: <code>-p &lt;PORT&gt;</code></h4>
 <div class="paragraph">
-<p>Subcommands are used to adjust the mode of function.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="verify.html" class="xref page"><code>verify</code></a> - To verify successful parsing and compilation of a set of policies.</p>
-</li>
-<li>
-<p><a href="eval.html" class="xref page"><code>eval</code></a> - To evaluate an input against policies.</p>
-</li>
-<li>
-<p><a href="serve.html" class="xref page"><code>serve</code></a> - To launch an API and UI server.</p>
-</li>
-</ul>
+<p>Specifies the network port the server will listen on.
+Defaults to <code>8080</code></p>
 </div>
 </div>
 </div>
