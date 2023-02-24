@@ -10,11 +10,11 @@ content:
     - url: ../seedwing-policy
       branches: main
       start_paths:
-        - faq
-        - dogma
-        - seedwing-policy-cli/docs
-        - seedwing-policy-server/docs
-        - examples
+        - docs/faq
+        - docs/dogma
+        - docs/examples
+        - cli/docs
+        - server/docs
 
 ui: 
   bundle:
