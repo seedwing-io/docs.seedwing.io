@@ -57,7 +57,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">General Usage</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -138,12 +138,8 @@
 <button class="nav-toggle"></button>
   <a href="../../docs/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="index.html">CLI</a></li>
-    <li><a href="index.html">General Usage</a></li>
-  </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/test.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -151,48 +147,41 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_seedwing_policy_cli"><a class="anchor" href="#_seedwing_policy_cli"></a>Seedwing Policy CLI</h2>
+<h2 id="_test"><a class="anchor" href="#_test"></a><code>test</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Seedwing Policy CLI provides access to the functionality of the Seedwing Policy Engine without requiring access to a running Policy Server.</p>
-</div>
-<div class="paragraph">
-<p>The primary command is <code>swio</code>, derived from the domain of <code>seedwing.io</code>.</p>
+<p>The <code>test</code> command runs a set of inputs against policies to test that their output is as expected.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_usage"><a class="anchor" href="#_general_usage"></a>General Usage</h3>
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
 <div class="sect3">
-<h4 id="_policy_directories_p_dir"><a class="anchor" href="#_policy_directories_p_dir"></a>Policy Directories: <code>-p &lt;DIR&gt;</code></h4>
+<h4 id="_input_test_directory_t_dir"><a class="anchor" href="#_input_test_directory_t_dir"></a>Input test directory: <code>-t &lt;DIR&gt;</code></h4>
 <div class="paragraph">
-<p>Zero or more policy directories may be specified using the <code>-p &lt;DIR&gt;</code> argument.</p>
+<p>The <code>-t &lt;DIR&gt;</code> argument specifies the a directory containing input and expected output documents.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_data_directories_d_dir"><a class="anchor" href="#_data_directories_d_dir"></a>Data Directories: <code>-d &lt;DIR&gt;</code></h4>
 <div class="paragraph">
-<p>Zero or more data directories may be specified using the <code>-d &lt;DIR&gt;</code> argument.</p>
+<p>The directory structure should contain a subdirectory matching the path to the pattern under consideration.
+Within the pattern directory, each directory specifies a named test.
+Within each named test directory, at least <code>input.json</code> is required, specifying the input to consider.
+If no other files are present, then the result of the test is expected to be <code>none</code> or unsatisfied.
+If an empty file named exactly <code>IDENTITY</code> is present, the test expects the pattern to evaluate to exactly the input document.
+If a file named <code>output.json</code> exists, that file describes the expected output transformation value.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_commands"><a class="anchor" href="#_commands"></a>Commands</h4>
 <div class="paragraph">
-<p>Subcommands are used to adjust the mode of function.</p>
+<p>For instance:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="verify.html" class="xref page"><code>verify</code></a> - To verify successful parsing and compilation of a set of policies.</p>
-</li>
-<li>
-<p><a href="eval.html" class="xref page"><code>eval</code></a> - To evaluate an input against policies.</p>
-</li>
-<li>
-<p><a href="serve.html" class="xref page"><code>serve</code></a> - To launch an API and UI server.</p>
-</li>
-<li>
-<p><a href="test.html" class="xref page"><code>serve</code></a> - To test policies against inputs.</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">  policy-tests/
+    base64/
+      base64/             # tests base64::base64
+        valid-document/   # named test of "valid-document"
+          input.json      # the input value
+          output.json     # the expected output value
+        invalid-document/ # named test of "invalid-document"
+          input.json      # the input value
+                          # no output, expects the input to not satisfy the pattern</code></pre>
+</div>
 </div>
 </div>
 </div>
