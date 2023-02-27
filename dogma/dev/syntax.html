@@ -64,7 +64,7 @@
     <a class="nav-link" href="syntax.html">General Syntax</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="primordial.html">Primordial Types</a>
+    <a class="nav-link" href="primordial.html">Primordial Patterns</a>
   </li>
 </ul>
   </li>
@@ -248,7 +248,7 @@ Currently only full patterns can be imported using <code>use</code> statements, 
 <div class="sect3">
 <h4 id="_simple_use"><a class="anchor" href="#_simple_use"></a>Simple <code>use</code></h4>
 <div class="paragraph">
-<p>The simplest <code>use</code> statement brings a type into visible scope for use by its simple name.</p>
+<p>The simplest <code>use</code> statement brings a pattern into visible scope for use by its simple name.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -279,7 +279,7 @@ use productization::promote::allowed as promote-allowed</code></pre>
 <div class="sect2">
 <h3 id="_patterns"><a class="anchor" href="#_patterns"></a>Patterns</h3>
 <div class="paragraph">
-<p>Patterns define named type patterns that ultimately end up being policies.</p>
+<p>Patterns define named patterns that ultimately end up being policies.</p>
 </div>
 <div class="paragraph">
 <p>Patterns are defined using the <code>pattern</code> keyword, followed by the name of the pattern, followed by an equal sign (<code>=</code>) and then the definition of the pattern.</p>
@@ -302,12 +302,12 @@ Functions, by convention, start with a capital letter, while pattern identifiers
 </div>
 <div class="paragraph">
 <p>Every pattern is built up from other patterns.
-It&#8217;s turtles all the way down, until you reach the <em>primordial</em> types and patterns.</p>
+It&#8217;s turtles all the way down, until you reach the <em>primordial</em> patterns.</p>
 </div>
 <div class="sect3">
-<h4 id="_simple_primordial_type_based_patterns"><a class="anchor" href="#_simple_primordial_type_based_patterns"></a>Simple Primordial type-based Patterns</h4>
+<h4 id="_simple_primordial_patterns"><a class="anchor" href="#_simple_primordial_patterns"></a>Simple Primordial Patterns</h4>
 <div class="paragraph">
-<p>The simplest pattern is one that match a <a href="./primordial">primordial</a> <em>type</em>.</p>
+<p>The simplest pattern is a <a href="./primordial">primordial</a> <em>pattern</em>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -444,7 +444,7 @@ Since object-shaped patterns are patterns, nesting is fully supported.</p>
 <p>List-based patterns are dependent on the content and the <em>sequence</em> of items contained within the input value.</p>
 </div>
 <div class="paragraph">
-<p>A list pattern is constructed using <code>[</code> and <code>]</code>, with a sequence of types denoting which patterns each term should satisfy.</p>
+<p>A list pattern is constructed using <code>[</code> and <code>]</code>, with a sequence of patterns denoting which patterns each term should satisfy.</p>
 </div>
 <div class="paragraph">
 <p>Just as with strings matching a specific sequence of characters, a list pattern matches a sequence of items, aligned to the terms within the pattern.</p>
@@ -457,7 +457,7 @@ Since object-shaped patterns are patterns, nesting is fully supported.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Lists may be somewhat counter-intuitive if you&#8217;re familiar with type syntax from other languages</p>
+<p>Lists may be somewhat counter-intuitive if you&#8217;re familiar with syntax from other languages</p>
 </div>
 <div class="paragraph">
 <p>For instance, <code>pattern list-of-numbers = [ integer ]</code> actually only defines a pattern that matches a list with exactly a single integer value.</p>
@@ -558,7 +558,7 @@ This includes things such as "all numbers greater than 42".
 It would be impossible to construct a concrete set of all numbers greater than <strong>42</strong>.</p>
 </div>
 <div class="paragraph">
-<p><em>Expression types</em> allow for defining types using basic arithmetic expressions.</p>
+<p><em>Expression patterns</em> allow for defining patterns using basic arithmetic expressions.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -573,12 +573,12 @@ The expression langauge may grow or shrink; we are still iterating.
 </table>
 </div>
 <div class="paragraph">
-<p>Expression types are denoted by the <code>$(</code> prefix and the <code>)</code> suffix.</p>
+<p>Expression patterns are denoted by the <code>$(</code> prefix and the <code>)</code> suffix.</p>
 </div>
 <div class="sect4">
 <h5 id="_the_self_keyword"><a class="anchor" href="#_the_self_keyword"></a>The <code>self</code> keyword</h5>
 <div class="paragraph">
-<p>Within an expression type, the <code>self</code> keyword refers to the input value.</p>
+<p>Within an expression pattern, the <code>self</code> keyword refers to the input value.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -603,10 +603,10 @@ pattern patched-software = {
 <h4 id="_traversals"><a class="anchor" href="#_traversals"></a>Traversals</h4>
 <div class="paragraph">
 <p>A traversal looks not unlike dot-notation in object-oriented languages to navigate within an object.
-When combining patterns, traversals provide a terser way of specifying details for small portions of a larger type.</p>
+When combining patterns, traversals provide a terser way of specifying details for small portions of a larger pattern.</p>
 </div>
 <div class="paragraph">
-<p>For instance, if we have a <code>versioned</code> type as before:</p>
+<p>For instance, if we have a <code>versioned</code> pattern as before:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -633,7 +633,7 @@ When combining patterns, traversals provide a terser way of specifying details f
 <p>Within a traversal, the <code>self</code> keyword once again refers to the input value.
 Navigation to deeper levels uses the dot (<code>.</code>) and nested field names.
 If traversing does not succeed, it is considered to fail matching.
-Traversals (and all types) are combinable with <em>refinements</em> described below.</p>
+Traversals (and all patterns) are combinable with <em>refinements</em> described below.</p>
 </div>
 </div>
 </div>
@@ -644,7 +644,7 @@ Traversals (and all types) are combinable with <em>refinements</em> described be
 </div>
 <div class="paragraph">
 <p>The <em>refinement</em> construct allows applying additional patterns to the value <em>at that point in the evaluation</em>.
-Refinements are specified using parentheses as a postfix to any other type.</p>
+Refinements are specified using parentheses as a postfix to any other pattern.</p>
 </div>
 <div class="paragraph">
 <p>Within the parentheses, any pattern can be specified to further restrict viable values.</p>
@@ -667,8 +667,8 @@ Refinements are specified using parentheses as a postfix to any other type.</p>
 <div class="sect3">
 <h4 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h4>
 <div class="paragraph">
-<p><em>Functions</em> are another construct that effectively work as types.
-Unlike simpler pattern types, the output of the function can be not only the identity (or failure), but can be a different transformed value.</p>
+<p><em>Functions</em> are another construct that effectively work as patterns.
+Unlike simpler patterns, the output of the function can be not only the identity (or failure), but can be a different transformed value.</p>
 </div>
 <div class="paragraph">
 <p>Like traversals, the function construct takes the input value under consideration as an implicit argument, does <strong>whatever it wants to do</strong>, and produces a result, which roughly boils down to:</p>
@@ -742,7 +742,7 @@ pattern named-bob-or-jim = named&lt;"bob"&gt; || named&lt;"jim"&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Parameters can be <em>any type or pattern</em>; they are not required to be value-esque types or patterns.</p>
+<p>Parameters can be <em>any pattern</em>; they are not required to be value-esque patterns.</p>
 </div>
 <div class="paragraph">
 <p>For instance, the logical <code>||</code> operator is actually syntactic sugar for <code>lang::or&lt;TERMS&gt;</code>.</p>
@@ -795,14 +795,14 @@ pattern unsugared = lang::or&lt;[ something-borrowed, something-blue ]&gt;</code
 </div>
 <div class="paragraph">
 <p>But alas, it is not.
-Instead of receiving the array of people that <code>data::from&lt;&#8230;&#8203;&gt;</code> provides, it receives the <em>actual type</em> <code>data::from&lt;&#8230;&#8203;&gt;</code>.
-That type has not yet been evaluated to provide the underlying data.
-The <code>lang::or&lt;&#8230;&#8203;&gt;</code> function expects a list-shaped type with terms to be <em>or</em>'d together.
-Instead, it&#8217;s receiving the function type underlying <code>data::from&lt;&#8230;&#8203;&gt;</code>.</p>
+Instead of receiving the array of people that <code>data::from&lt;&#8230;&#8203;&gt;</code> provides, it receives the <em>actual pattern</em> <code>data::from&lt;&#8230;&#8203;&gt;</code>.
+That pattern has not yet been evaluated to provide the underlying data.
+The <code>lang::or&lt;&#8230;&#8203;&gt;</code> function expects a list-shaped pattern with terms to be <em>or</em>'d together.
+Instead, it&#8217;s receiving the function pattern underlying <code>data::from&lt;&#8230;&#8203;&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p>To resolve a type against the input <em>prior</em> to passing it as a parameter, the dereference/eager-evaluation operator is used: <code>*</code>.
-By placing a <code>*</code> as a prefix to a type, it will be evaluated, and the resulting value is then treated as a type and passed further.</p>
+<p>To resolve a pattern against the input <em>prior</em> to passing it as a parameter, the dereference/eager-evaluation operator is used: <code>*</code>.
+By placing a <code>*</code> as a prefix to a pattern, it will be evaluated, and the resulting value is then treated as a pattern and passed further.</p>
 </div>
 <div class="paragraph">
 <p>The pattern that behaves the way one might expect looks like:</p>
@@ -813,7 +813,7 @@ By placing a <code>*</code> as a prefix to a type, it will be evaluated, and the
 </div>
 </div>
 <div class="paragraph">
-<p>Now indeed the <code>lang::or</code> will received a list-ish type full of string-ish types (the values <code>bob</code> and <code>jim</code>) and perform as expected.</p>
+<p>Now indeed the <code>lang::or</code> will received a list-ish pattern full of string-ish patterns (the values <code>bob</code> and <code>jim</code>) and perform as expected.</p>
 </div>
 </div>
 </div>

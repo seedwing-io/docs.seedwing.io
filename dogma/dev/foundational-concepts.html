@@ -64,7 +64,7 @@
     <a class="nav-link" href="syntax.html">General Syntax</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="primordial.html">Primordial Types</a>
+    <a class="nav-link" href="primordial.html">Primordial Patterns</a>
   </li>
 </ul>
   </li>
@@ -159,7 +159,7 @@ The engine attempts to match the provided data with a pattern that describes wha
 </div>
 </div>
 <div class="sect2">
-<h3 id="_policies_patterns_types_functions_and_expressions"><a class="anchor" href="#_policies_patterns_types_functions_and_expressions"></a>Policies, Patterns, Types, Functions and Expressions</h3>
+<h3 id="_policies_patterns_functions_and_expressions"><a class="anchor" href="#_policies_patterns_functions_and_expressions"></a>Policies, Patterns, Functions and Expressions</h3>
 <div class="paragraph">
 <p>The core constructs of policies authored in <strong>Dogma</strong> are:</p>
 </div>
@@ -167,9 +167,6 @@ The engine attempts to match the provided data with a pattern that describes wha
 <ul>
 <li>
 <p>Patterns</p>
-</li>
-<li>
-<p>Types</p>
 </li>
 <li>
 <p>Functions</p>
@@ -183,8 +180,10 @@ The engine attempts to match the provided data with a pattern that describes wha
 <h4 id="_policies"><a class="anchor" href="#_policies"></a>Policies</h4>
 <div class="paragraph">
 <p>A "policy" is simply an <em>application</em> of a pattern towards a decision that results in a relatively boolean outcome.
-Within Dogma, there is no actual concrete "policy" construct.
-Policies are used in a variety of ways.
+Within Dogma, there is no actual concrete "policy" construct.</p>
+</div>
+<div class="paragraph">
+<p>Policies are used in a variety of ways.
 Simple schema-validation is a policy that defines what a compliant well-formed document should look like.
 Gate-checks in the course of a software pipeline represent another policy that defines what is acceptable to progress beyond a particular point of the pipeline.</p>
 </div>
@@ -193,19 +192,22 @@ Gate-checks in the course of a software pipeline represent another policy that d
 <div class="sect2">
 <h3 id="_patterns"><a class="anchor" href="#_patterns"></a>Patterns</h3>
 <div class="paragraph">
-<p>The base construct within Dogma is the <em>pattern</em>.
-In general, a pattern describes, in varying degrees of detail, the range of acceptable inputs.
-Any input that does not match the pattern is considered to not comply with the pattern.
-Patterns are defined in terms of <em>types</em>, <em>functions</em>, and <em>expressions</em>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_types"><a class="anchor" href="#_types"></a>Types</h3>
-<div class="paragraph">
-<p>A <em>type</em> construct in Dogma defines the structure or content of valid input values.</p>
+<p>The base construct within Dogma is the <em>pattern</em>.</p>
 </div>
 <div class="paragraph">
-<p>Similar to many programming languages, general <em>primordial</em> types are defined, including:</p>
+<p>In general, a pattern describes, in varying degrees of detail, the range of acceptable inputs.</p>
+</div>
+<div class="paragraph">
+<p>Any input that does not match the pattern is considered to not comply with the pattern.</p>
+</div>
+<div class="paragraph">
+<p>Patterns are defined in terms of <em>values</em>, <em>functions</em>, and <em>expressions</em>.</p>
+</div>
+<div class="paragraph">
+<p>A <em>primordial</em> pattern in Dogma defines the structure or content of valid input values.</p>
+</div>
+<div class="paragraph">
+<p>Similar to many programming languages, general <em>primordial</em> patterns are defined, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -227,16 +229,16 @@ Patterns are defined in terms of <em>types</em>, <em>functions</em>, and <em>exp
 </ul>
 </div>
 <div class="paragraph">
-<p>Additionally, a policy author can define new structured types that are object- or list-shaped, where each component is recursively defined to be of a type.</p>
+<p>Additionally, a policy author can define new structured patterns that are object- or list-shaped, where each component is recursively defined to be of a pattern type.</p>
 </div>
 <div class="paragraph">
-<p>When an input value is presented to a type, the type acts not unlike a function, accepting the value, and either passing it back as the output upon match, or passing along nothing if it fails to match.</p>
+<p>When an input value is presented to a pattern, the pattern acts not unlike a function, accepting the value, and either passing it back as the output upon match, or passing along nothing if it fails to match.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h3>
 <div class="paragraph">
-<p>A <em>function</em> can also be considered a kind of type if you squint hard enough from far enough away, since they are also presented with an input value and pass along an output value if successful.
+<p>A <em>function</em> can also be considered a kind of pattern if you squint hard enough from far enough away, since they are also presented with an input value and pass along an output value if successful.
 The primary difference is that functions are written in Rust, not Dogma, and they may pass along completely different values as output.</p>
 </div>
 <div class="paragraph">
@@ -249,9 +251,9 @@ The primary difference is that functions are written in Rust, not Dogma, and the
 <p><em>Expression</em> constructs in Dogma may actually appear in two different contexts.</p>
 </div>
 <div class="sect3">
-<h4 id="_type_expressions"><a class="anchor" href="#_type_expressions"></a>Type Expressions</h4>
+<h4 id="_pattern_expressions"><a class="anchor" href="#_pattern_expressions"></a>Pattern Expressions</h4>
 <div class="paragraph">
-<p><em>Type expressions</em> are when two or more patterns are combined using algebraic <strong><em>and</em></strong> or <strong><em>or</em></strong> operators (<code>&amp;&amp;</code> and <code>||</code>).
+<p><em>Pattern expressions</em> are when two or more patterns are combined using algebraic <strong><em>and</em></strong> or <strong><em>or</em></strong> operators (<code>&amp;&amp;</code> and <code>||</code>).
 In the case of <code>&amp;&amp;</code>, the entire expression is only satisfied if <em>all</em> component terms are satisfied.
 For <code>||</code>, the entire expression is satisified if <em>any</em> component term is satisfied.</p>
 </div>
@@ -261,10 +263,10 @@ Short-circuiting does not apply to <code>&amp;&amp;</code>, so that all viable f
 </div>
 </div>
 <div class="sect3">
-<h4 id="_expression_types"><a class="anchor" href="#_expression_types"></a>Expression Types</h4>
+<h4 id="_expression_patterns"><a class="anchor" href="#_expression_patterns"></a>Expression Patterns</h4>
 <div class="paragraph">
-<p>Confusingly, the other context of expression is <em>expression types</em>.
-Expression types define a satisfiable type purely as an expression against the input value.
+<p>Confusingly, the other context of expression is <em>expression patterns</em>.
+Expression patterns define a satisfiable pattern purely as an expression against the input value.
 Generally these are limited to use for numeric comparisons.</p>
 </div>
 </div>
