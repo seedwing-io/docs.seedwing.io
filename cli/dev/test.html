@@ -66,6 +66,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="eval.html"><code>eval</code></a>
   </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="test.html"><code>test</code></a>
+  </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="serve.html"><code>serve</code></a>
   </li>
@@ -138,6 +141,10 @@
 <button class="nav-toggle"></button>
   <a href="../../docs/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">CLI</a></li>
+    <li><a href="test.html"><code>test</code></a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/test.adoc">Edit this Page</a></div>
   </div>
@@ -162,10 +169,29 @@
 <div class="paragraph">
 <p>The directory structure should contain a subdirectory matching the path to the pattern under consideration.
 Within the pattern directory, each directory specifies a named test.
-Within each named test directory, at least <code>input.json</code> is required, specifying the input to consider.
-If no other files are present, then the result of the test is expected to be <code>none</code> or unsatisfied.
-If an empty file named exactly <code>IDENTITY</code> is present, the test expects the pattern to evaluate to exactly the input document.
-If a file named <code>output.json</code> exists, that file describes the expected output transformation value.</p>
+Within each named test directory, at least <code>input.json</code> is required, specifying the input to consider.</p>
+</div>
+<div class="paragraph">
+<p>Specifying the output is done using an <code>output</code> file with an appropriate extension and optional content:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>output.identity</code>: The input value is expected to be unchanged as a satisfying output value.</p>
+</li>
+<li>
+<p><code>output.json</code>: A specific transformed output value is expected and contained within this file.</p>
+</li>
+<li>
+<p><code>output.any</code>: Any output is considered passing.</p>
+</li>
+<li>
+<p><code>output.none</code>: The input is expected to <strong>not</strong> satisfy the pattern.</p>
+</li>
+<li>
+<p>If no output file is present, the test is considered <strong>pending</strong> and will neither pass nor fail.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For instance:</p>
@@ -174,14 +200,50 @@ If a file named <code>output.json</code> exists, that file describes the expecte
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">  policy-tests/
     base64/
-      base64/             # tests base64::base64
-        valid-document/   # named test of "valid-document"
-          input.json      # the input value
-          output.json     # the expected output value
-        invalid-document/ # named test of "invalid-document"
-          input.json      # the input value
-                          # no output, expects the input to not satisfy the pattern</code></pre>
+      base64/              # tests base64::base64
+        valid-document/    # named test of "valid-document"
+          input.json       # the input value
+          output.json      # the expected output value
+        validish-document/ # named test of "valid-document"
+          input.json       # the input value
+          output.any       # an output value is expected, but no assertions about its content.
+        invalid-document/  # named test of "invalid-document"
+          input.json       # the input value
+          output.none      # no output, expects the input to not satisfy the pattern</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>This argument may be specified repeatedly to accumulate multiple test directories.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pattern_matching_m_match"><a class="anchor" href="#_pattern_matching_m_match"></a>Pattern matching: <code>-m &lt;MATCH&gt;</code></h4>
+<div class="paragraph">
+<p>The <code>-m &lt;MATCH&gt;</code> argument may be used to specify a subset of tests to execute.</p>
+</div>
+<div class="paragraph">
+<p>The <code>MATCH</code> argument prefix-matches against the name of the pattern under consideration joined with the named test.
+There is no requirement that the <code>MATCH</code> argument be a complete name of a module, pattern or test.
+Simple string-prefix matching occurs.</p>
+</div>
+<div class="paragraph">
+<p>This argument may only be specified once.</p>
+</div>
+<div class="paragraph">
+<p>For instance:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-m base64</code>: would match all tests for all patterns in the <code>base64</code> module.</p>
+</li>
+<li>
+<p><code>-m base64::base64</code>: would match all tests for the <code>base64::base64</code> pattern.</p>
+</li>
+<li>
+<p><code>-m base64::base64::valid-document</code>: would match exactly the <code>valid-document</code> test for <code>base64::base64</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
