@@ -212,8 +212,20 @@ Within each named test directory, at least <code>input.json</code> is required, 
           output.none      # no output, expects the input to not satisfy the pattern</code></pre>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_test_harness_test_dog"><a class="anchor" href="#_test_harness_test_dog"></a>Test harness: <code>test.dog</code></h5>
+<div class="paragraph">
+<p>Any given named test directory may include an option <code>test.dog</code> file, which must include at least a single pattern named <code>test</code>, which will actually be used to perform the test, instead of the primary pattern designated through the directory structure.</p>
+</div>
+<div class="paragraph">
+<p>It is assumed (but not required) that the two are somehow related.</p>
+</div>
+<div class="paragraph">
+<p>A test harness is generally useful for testing <em>parameterized patterns</em> which are otherwise not usually directly invokable.</p>
+</div>
 <div class="paragraph">
 <p>This argument may be specified repeatedly to accumulate multiple test directories.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
