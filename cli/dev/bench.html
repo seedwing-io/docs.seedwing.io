@@ -48,17 +48,29 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="server" data-version="dev">
+<div class="nav-container" data-component="cli" data-version="dev">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="index.html">Server</a></h3>
+    <h3 class="title"><a href="index.html">CLI</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Server</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">General Usage</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="verify.html"><code>verify</code></a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="eval.html"><code>eval</code></a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="test.html"><code>test</code></a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="serve.html"><code>serve</code></a>
   </li>
 </ul>
   </li>
@@ -67,15 +79,15 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Server</span>
+    <span class="title">CLI</span>
     <span class="version">dev</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <a class="title" href="../../cli/dev/index.html">CLI</a>
+    <li class="component is-current">
+      <a class="title" href="index.html">CLI</a>
       <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../cli/dev/index.html">dev</a>
+        <li class="version is-current is-latest">
+          <a href="index.html">dev</a>
         </li>
       </ul>
     </li>
@@ -111,11 +123,11 @@
         </li>
       </ul>
     </li>
-    <li class="component is-current">
-      <a class="title" href="index.html">Server</a>
+    <li class="component">
+      <a class="title" href="../../server/dev/index.html">Server</a>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">dev</a>
+        <li class="version is-latest">
+          <a href="../../server/dev/index.html">dev</a>
         </li>
       </ul>
     </li>
@@ -129,11 +141,8 @@
 <button class="nav-toggle"></button>
   <a href="../../docs/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="index.html">Server</a></li>
-  </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/server/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/bench.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -141,13 +150,37 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_seedwing_policy_server"><a class="anchor" href="#_seedwing_policy_server"></a>Seedwing Policy Server</h2>
+<h2 id="_bench"><a class="anchor" href="#_bench"></a><code>bench</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Seedwing Policy Server provides a collection of HTTP endpoints to allow remote evaluation of your policy patterns.</p>
+<p>The <code>bench</code> command allows for benchmarking the evaluation of an input against the policy and data directories and named policy provided.</p>
 </div>
 <div class="paragraph">
-<p>To run the server, use the CLI tool.</p>
+<p>The benchmarking tool will perform a warmup sequence 1/10th of the <code>count</code> iterations configured, before running the policy evaluation <code>count</code> times.</p>
+</div>
+<div class="paragraph">
+<p>When done it prints a JSON output with statistics from the benchmark.</p>
+</div>
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="sect3">
+<h4 id="_input_document_i_file"><a class="anchor" href="#_input_document_i_file"></a>Input document <code>-i &lt;FILE&gt;</code></h4>
+<div class="paragraph">
+<p>Input can be provided via <code>STDIN</code> or using the <code>-i &lt;FILE&gt;</code> argument.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pattern_name_n_pattern"><a class="anchor" href="#_pattern_name_n_pattern"></a>Pattern name: <code>-n &lt;PATTERN&gt;</code></h4>
+<div class="paragraph">
+<p>The pattern to benchmark the input document against must be specified using the <code>-n &lt;PATTERN&gt;</code> argument.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_count_c_count"><a class="anchor" href="#_count_c_count"></a>Count: <code>-c &lt;COUNT&gt;</code></h4>
+<div class="paragraph">
+<p>The number of iterations the benchmark should be repeated to get a statistically significant result.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
