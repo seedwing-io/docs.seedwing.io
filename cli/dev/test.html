@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Seedwing</title>
+    <title>test :: Seedwing</title>
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -156,16 +156,19 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<div class="sect1">
-<h2 id="_test"><a class="anchor" href="#_test"></a><code>test</code></h2>
+<h1 class="page"><code>test</code></h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>test</code> command runs a set of inputs against policies to test that their output is as expected.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
-<div class="sect3">
-<h4 id="_input_test_directory_t_dir"><a class="anchor" href="#_input_test_directory_t_dir"></a>Input test directory: <code>-t &lt;DIR&gt;</code></h4>
+<h3 id="_input_test_directory_t_dir"><a class="anchor" href="#_input_test_directory_t_dir"></a>Input test directory: <code>-t &lt;DIR&gt;</code></h3>
 <div class="paragraph">
 <p>The <code>-t &lt;DIR&gt;</code> argument specifies the a directory containing input and expected output documents.</p>
 </div>
@@ -197,6 +200,9 @@ Within each named test directory, at least <code>input.json</code> is required, 
 </ul>
 </div>
 <div class="paragraph">
+<p>Additionally, an <code>ignored</code> file may exist, in which case all other files are ignored and the test is skipped, neither passing nor failing, as with the pending case above.</p>
+</div>
+<div class="paragraph">
 <p>For instance:</p>
 </div>
 <div class="listingblock">
@@ -215,8 +221,8 @@ Within each named test directory, at least <code>input.json</code> is required, 
           output.none      # no output, expects the input to not satisfy the pattern</code></pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_test_harness_test_dog"><a class="anchor" href="#_test_harness_test_dog"></a>Test harness: <code>test.dog</code></h5>
+<div class="sect3">
+<h4 id="_test_harness_test_dog"><a class="anchor" href="#_test_harness_test_dog"></a>Test harness: <code>test.dog</code></h4>
 <div class="paragraph">
 <p>Any given named test directory may include an option <code>test.dog</code> file, which must include at least a single pattern named <code>test</code>, which will actually be used to perform the test, instead of the primary pattern designated through the directory structure.</p>
 </div>
@@ -230,9 +236,15 @@ Within each named test directory, at least <code>input.json</code> is required, 
 <p>This argument may be specified repeatedly to accumulate multiple test directories.</p>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="_pattern_matching_m_match"><a class="anchor" href="#_pattern_matching_m_match"></a>Pattern matching: <code>-m &lt;MATCH&gt;</code></h4>
+<h4 id="_configuration_config_json"><a class="anchor" href="#_configuration_config_json"></a>Configuration: <code>config.json</code></h4>
+<div class="paragraph">
+<p><strong>Experimental</strong>: Configuration values available through <code>config::of&lt;KEY&gt;</code> are settable per-test, through the precense of a <code>config.json</code> file.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pattern_matching_m_match"><a class="anchor" href="#_pattern_matching_m_match"></a>Pattern matching: <code>-m &lt;MATCH&gt;</code></h3>
 <div class="paragraph">
 <p>The <code>-m &lt;MATCH&gt;</code> argument may be used to specify a subset of tests to execute.</p>
 </div>
@@ -259,7 +271,6 @@ Simple string-prefix matching occurs.</p>
 <p><code>-m base64::base64::valid-document</code>: would match exactly the <code>valid-document</code> test for <code>base64::base64</code>.</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>
