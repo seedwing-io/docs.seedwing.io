@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Seedwing</title>
+    <title>Examples :: Seedwing</title>
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -57,7 +57,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">General Usage</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -75,7 +75,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="bench.html"><code>bench</code></a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="examples.html">Examples</a>
   </li>
 </ul>
@@ -149,67 +149,163 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">CLI</a></li>
-    <li><a href="index.html">General Usage</a></li>
+    <li><a href="examples.html">Examples</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/cli/docs/modules/ROOT/pages/examples.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
+<h1 class="page">Examples</h1>
 <div class="sect1">
-<h2 id="_seedwing_policy_cli"><a class="anchor" href="#_seedwing_policy_cli"></a>Seedwing Policy CLI</h2>
+<h2 id="_basic_rule_usage"><a class="anchor" href="#_basic_rule_usage"></a>Basic rule usage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Seedwing Policy CLI provides access to the functionality of the Seedwing Policy Engine without requiring access to a running Policy Server.</p>
+<p>This first example show the simplest possible rule.</p>
 </div>
 <div class="paragraph">
-<p>The primary command is <code>swio</code>, derived from the domain of <code>seedwing.io</code>.</p>
+<p>First we need to generate a rule:</p>
 </div>
-<div class="sect2">
-<h3 id="_general_usage"><a class="anchor" href="#_general_usage"></a>General Usage</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ echo "pattern nr = 18" &gt; nr-rule.dog</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Have a look at the <a href="examples.html" class="xref page">examples</a> for how to use it.</p>
+<p>And we also need have an input file:</p>
 </div>
-<div class="sect3">
-<h4 id="_policy_directories_p_dir"><a class="anchor" href="#_policy_directories_p_dir"></a>Policy Directories: <code>-p &lt;DIR&gt;</code></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ echo 18 &gt; input.txt</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ cargo r -q --bin swio -- \
+     eval \
+     --policy nr-rule.dog \
+     --input input.txt \
+     --name nr-rule::nr
+evaluate pattern: nr-rule::nr
+Pattern: nr-rule::nr
+Satisfied: true
+Value:
+  18
+Rationale:
+  primordial(true)
+
+ok!</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_json_input_format"><a class="anchor" href="#_json_input_format"></a>JSON input format</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Zero or more policy directories may be specified using the <code>-p &lt;DIR&gt;</code> argument.</p>
+<p>First we create our rule, and save it in a file named <code>json-rule.dog</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ echo "pattern nr = {
+   nr: integer,
+}" &gt; json-rule.dog</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_data_directories_d_dir"><a class="anchor" href="#_data_directories_d_dir"></a>Data Directories: <code>-d &lt;DIR&gt;</code></h4>
 <div class="paragraph">
-<p>Zero or more data directories may be specified using the <code>-d &lt;DIR&gt;</code> argument.</p>
+<p>And then we create an input file, and save it in a file named <code>input.json</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ echo "{
+  "nr": 18
+}" &gt; input.json</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_commands"><a class="anchor" href="#_commands"></a>Commands</h4>
 <div class="paragraph">
-<p>Subcommands are used to adjust the mode of function.</p>
+<p>And we can run the <code>eval</code> command:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="verify.html" class="xref page"><code>verify</code></a> - To verify successful parsing and compilation of a set of policies.</p>
-</li>
-<li>
-<p><a href="eval.html" class="xref page"><code>eval</code></a> - To evaluate an input against policies.</p>
-</li>
-<li>
-<p><a href="serve.html" class="xref page"><code>serve</code></a> - To launch an API and UI server.</p>
-</li>
-<li>
-<p><a href="test.html" class="xref page"><code>test</code></a> - To test policies against inputs.</p>
-</li>
-<li>
-<p><a href="bench.html" class="xref page"><code>bench</code></a> - To benchmark a policy against an input.</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ cargo r -q --bin swio -- \
+     eval \
+     --policy json-rule.dog \
+     --input input.json \
+     --name json-rule::nr</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_yaml_input_format"><a class="anchor" href="#_yaml_input_format"></a>YAML input format</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First we create our rule, and save it in a file named <code>yaml-rule.dog</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ echo "pattern nr = {
+   nr: integer,
+}" &gt; yaml-rule.dog</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then we create an input file, and save it in a file named <code>input.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ echo "---
+  nr: 18" &gt; input.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then we specify the <code>-t</code> option to the <code>eval</code> command and specify the format
+as <code>yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ cargo r -q --bin swio -- \
+     eval -t yaml \
+     --policy yaml-rule.dog \
+     --input input.yaml \
+     --name yaml-rule::nr
+evaluate pattern: yaml-rule::nr
+Pattern: yaml-rule::nr
+Satisfied: true
+Value:
+  nr: &lt;&lt;integer&gt;&gt;
+Rationale:
+  field: nr
+    Pattern: &lt;none&gt;
+    Satisfied: true
+    Value:
+      18
+    Rationale:
+      primordial(true)
+
+ok!</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_server"><a class="anchor" href="#_server"></a>Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>swio</code> command can also be used to run the policy server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ cargo r -q --bin swio -- \
+     serve \
+     --policy json-rule.dog</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then open <a href="http://localhost:8080" class="bare">http://localhost:8080</a> in your browser and navigate using the web UI.</p>
 </div>
 </div>
 </div>
