@@ -13,7 +13,7 @@ content:
         - docs/faq
         - docs/dogma
         - docs/examples
-        - cli/docs
+        - swio/docs
         - server/docs
 
 ui: 
