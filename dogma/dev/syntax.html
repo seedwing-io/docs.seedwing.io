@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Seedwing</title>
+    <title>Basic Syntax :: Seedwing</title>
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -130,17 +130,18 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
+<h1 class="page">Basic Syntax</h1>
 <div class="sect1">
-<h2 id="_basic_syntax"><a class="anchor" href="#_basic_syntax"></a>Basic Syntax</h2>
+<h2 id="_dog_files"><a class="anchor" href="#_dog_files"></a><code>.dog</code> Files</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_dog_files"><a class="anchor" href="#_dog_files"></a><code>.dog</code> Files</h3>
 <div class="paragraph">
 <p>In general, patterns are authored in plaintext UTF-8 files with the suffix of <code>.dog</code>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_delimiters_whitespace"><a class="anchor" href="#_delimiters_whitespace"></a>Delimiters &amp; Whitespace</h3>
+</div>
+<div class="sect1">
+<h2 id="_delimiters_whitespace"><a class="anchor" href="#_delimiters_whitespace"></a>Delimiters &amp; Whitespace</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>First, Dogma does not require a semicolon (<code>;</code>) or any other statement-ending marker.
 Line delimeters are non-notable.
@@ -148,15 +149,19 @@ Trailing commas are allowed in any comma-delimited sequence.
 Generally, whitespace is also non-notable and does not affect the definition of a pattern.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_comments"><a class="anchor" href="#_comments"></a>Comments</h3>
+</div>
+<div class="sect1">
+<h2 id="_comments"><a class="anchor" href="#_comments"></a>Comments</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Single-line comments are supported using <code>//</code> and elide everything until the end of the line.
 Documentation comments may be applied to patterns using <code>///</code> and should be marked up using <a href="https://asciidoc.org/">AsciiDoc</a> format.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_file_structure"><a class="anchor" href="#_file_structure"></a>File Structure</h3>
+</div>
+<div class="sect1">
+<h2 id="_file_structure"><a class="anchor" href="#_file_structure"></a>File Structure</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>There are two primary top-level "statements" in the Dogma language:</p>
 </div>
@@ -184,8 +189,10 @@ pattern ...</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_directory_structure"><a class="anchor" href="#_directory_structure"></a>Directory Structure</h3>
+</div>
+<div class="sect1">
+<h2 id="_directory_structure"><a class="anchor" href="#_directory_structure"></a>Directory Structure</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>When a directory is provided as a policy library, the directory will be traversed and all files with the extension of <code>.dog</code> will be parsed, compiled, and made available as evaluatable policies.</p>
 </div>
@@ -209,8 +216,10 @@ pattern ...</code></pre>
 <p>The <code>productization/build.dog</code> file will contain policies that end up in the <code>productization::build::</code> package, while the <code>sre/deploy.dog</code> will result in policies existing in the package of <code>sre::deploy::</code>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_use_statements"><a class="anchor" href="#_use_statements"></a><code>use</code> statements</h3>
+</div>
+<div class="sect1">
+<h2 id="_use_statements"><a class="anchor" href="#_use_statements"></a><code>use</code> statements</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The <code>use</code> statement brings other packages into visible scope.
 The usage of <code>use</code> statements is not required, as all patterns are always addressable using their fully-qualified package-prefixed names.
@@ -228,8 +237,8 @@ Currently only full patterns can be imported using <code>use</code> statements, 
 </tr>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_simple_use"><a class="anchor" href="#_simple_use"></a>Simple <code>use</code></h4>
+<div class="sect2">
+<h3 id="_simple_use"><a class="anchor" href="#_simple_use"></a>Simple <code>use</code></h3>
 <div class="paragraph">
 <p>The simplest <code>use</code> statement brings a pattern into visible scope for use by its simple name.</p>
 </div>
@@ -243,8 +252,8 @@ use sre::deploy::allowed</code></pre>
 <p>Within a pattern defined in the same file, referencing these two imports is possible using purely their tail-end simple name of <code>all</code> and <code>allowed</code>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_the_use_as_variant"><a class="anchor" href="#_the_use_as_variant"></a>The <code>use &#8230;&#8203; as &#8230;&#8203;</code> variant</h4>
+<div class="sect2">
+<h3 id="_the_use_as_variant"><a class="anchor" href="#_the_use_as_variant"></a>The <code>use &#8230;&#8203; as &#8230;&#8203;</code> variant</h3>
 <div class="paragraph">
 <p>In the event a policy author wants to <code>use</code> two different patterns that share a simple name, an <code>as &#8230;&#8203;</code> suffix is allowed to rename the pattern <em>in this file only</em>.</p>
 </div>
@@ -259,8 +268,10 @@ use productization::promote::allowed as promote-allowed</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_patterns"><a class="anchor" href="#_patterns"></a>Patterns</h3>
+</div>
+<div class="sect1">
+<h2 id="_patterns"><a class="anchor" href="#_patterns"></a>Patterns</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Patterns define named patterns that ultimately end up being policies.</p>
 </div>
@@ -287,8 +298,8 @@ Functions, by convention, start with a capital letter, while pattern identifiers
 <p>Every pattern is built up from other patterns.
 It&#8217;s turtles all the way down, until you reach the <em>primordial</em> patterns.</p>
 </div>
-<div class="sect3">
-<h4 id="_simple_primordial_patterns"><a class="anchor" href="#_simple_primordial_patterns"></a>Simple Primordial Patterns</h4>
+<div class="sect2">
+<h3 id="_simple_primordial_patterns"><a class="anchor" href="#_simple_primordial_patterns"></a>Simple Primordial Patterns</h3>
 <div class="paragraph">
 <p>The simplest pattern is a <a href="./primordial">primordial</a> <em>pattern</em>.</p>
 </div>
@@ -304,8 +315,8 @@ pattern true-or-false = boolean</code></pre>
 <p>In all four cases, these simple patterns really only define an <strong>alias</strong> to the right-hand-side of the pattern definition.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_simple_primordial_value_based_patterns"><a class="anchor" href="#_simple_primordial_value_based_patterns"></a>Simple Primordial value-based Patterns</h4>
+<div class="sect2">
+<h3 id="_simple_primordial_value_based_patterns"><a class="anchor" href="#_simple_primordial_value_based_patterns"></a>Simple Primordial value-based Patterns</h3>
 <div class="paragraph">
 <p>One step beyond specifying that a pattern matches <em>all</em> integers, string or booleans is restricting which set of integers, strings and booleans it may match.</p>
 </div>
@@ -319,8 +330,8 @@ pattern the-number-forty-two = 42</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_object_shaped_patterns"><a class="anchor" href="#_object_shaped_patterns"></a>Object-shaped Patterns</h4>
+<div class="sect2">
+<h3 id="_object_shaped_patterns"><a class="anchor" href="#_object_shaped_patterns"></a>Object-shaped Patterns</h3>
 <div class="paragraph">
 <p>Patterns that match object-shaped input values (useful for applying policy to a JSON object) are defined using <code>{</code> and <code>}</code> with field patterns within.</p>
 </div>
@@ -421,8 +432,8 @@ Since object-shaped patterns are patterns, nesting is fully supported.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_list_based_patterns"><a class="anchor" href="#_list_based_patterns"></a>List-based Patterns</h4>
+<div class="sect2">
+<h3 id="_list_based_patterns"><a class="anchor" href="#_list_based_patterns"></a>List-based Patterns</h3>
 <div class="paragraph">
 <p>List-based patterns are dependent on the content and the <em>sequence</em> of items contained within the input value.</p>
 </div>
@@ -480,8 +491,8 @@ Since object-shaped patterns are patterns, nesting is fully supported.</p>
 <p>There are <a href="/policy/list/">core language functions</a> available to work with lists in a more comprehensive way.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_logical_expressions"><a class="anchor" href="#_logical_expressions"></a>Logical Expressions</h4>
+<div class="sect2">
+<h3 id="_logical_expressions"><a class="anchor" href="#_logical_expressions"></a>Logical Expressions</h3>
 <div class="paragraph">
 <p>Given that a pattern only worries about the bits of an input that it can decide upon, it&#8217;s useful to combine multiple patterns to each separately evaluate their subset of the input.</p>
 </div>
@@ -533,8 +544,8 @@ pattern versioned = {
 Short-circuiting does not apply to <code>&amp;&amp;</code>, so that all viable failures can be detected early, instead of piece-meal.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_expression_types"><a class="anchor" href="#_expression_types"></a>Expression Types</h4>
+<div class="sect2">
+<h3 id="_expression_types"><a class="anchor" href="#_expression_types"></a>Expression Types</h3>
 <div class="paragraph">
 <p>Some patterns need to match <em>uncountable sets</em>.
 This includes things such as "all numbers greater than 42".
@@ -558,8 +569,8 @@ The expression langauge may grow or shrink; we are still iterating.
 <div class="paragraph">
 <p>Expression patterns are denoted by the <code>$(</code> prefix and the <code>)</code> suffix.</p>
 </div>
-<div class="sect4">
-<h5 id="_the_self_keyword"><a class="anchor" href="#_the_self_keyword"></a>The <code>self</code> keyword</h5>
+<div class="sect3">
+<h4 id="_the_self_keyword"><a class="anchor" href="#_the_self_keyword"></a>The <code>self</code> keyword</h4>
 <div class="paragraph">
 <p>Within an expression pattern, the <code>self</code> keyword refers to the input value.</p>
 </div>
@@ -582,8 +593,8 @@ pattern patched-software = {
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_traversals"><a class="anchor" href="#_traversals"></a>Traversals</h4>
+<div class="sect2">
+<h3 id="_traversals"><a class="anchor" href="#_traversals"></a>Traversals</h3>
 <div class="paragraph">
 <p>A traversal looks not unlike dot-notation in object-oriented languages to navigate within an object.
 When combining patterns, traversals provide a terser way of specifying details for small portions of a larger pattern.</p>
@@ -610,8 +621,8 @@ When combining patterns, traversals provide a terser way of specifying details f
 <pre class="highlightjs highlight"><code class="language-none hljs">pattern patched = versioned &amp;&amp; self.version.patch</code></pre>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_the_self_keyword_2"><a class="anchor" href="#_the_self_keyword_2"></a>The <code>self</code> keyword</h5>
+<div class="sect3">
+<h4 id="_the_self_keyword_2"><a class="anchor" href="#_the_self_keyword_2"></a>The <code>self</code> keyword</h4>
 <div class="paragraph">
 <p>Within a traversal, the <code>self</code> keyword once again refers to the input value.
 Navigation to deeper levels uses the dot (<code>.</code>) and nested field names.
@@ -620,8 +631,8 @@ Traversals (and all patterns) are combinable with <em>refinements</em> described
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_refinements"><a class="anchor" href="#_refinements"></a>Refinements</h4>
+<div class="sect2">
+<h3 id="_refinements"><a class="anchor" href="#_refinements"></a>Refinements</h3>
 <div class="paragraph">
 <p>While the above simply tested for the existance of a given field, sometimes we want to <strong>refine</strong> the acceptability of a field.</p>
 </div>
@@ -647,8 +658,8 @@ Refinements are specified using parentheses as a postfix to any other pattern.</
 <p>Refinements are also useful when working with <em>functions</em>, described below.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h4>
+<div class="sect2">
+<h3 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h3>
 <div class="paragraph">
 <p><em>Functions</em> are another construct that effectively work as patterns.
 Unlike simpler patterns, the output of the function can be not only the identity (or failure), but can be a different transformed value.</p>
@@ -701,8 +712,10 @@ Unlike simpler patterns, the output of the function can be not only the identity
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_parameterized_patterns"><a class="anchor" href="#_parameterized_patterns"></a>Parameterized Patterns</h3>
+</div>
+<div class="sect1">
+<h2 id="_parameterized_patterns"><a class="anchor" href="#_parameterized_patterns"></a>Parameterized Patterns</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>So far all patterns have been standalone and independent, other than the components that comprise them.</p>
 </div>
@@ -744,8 +757,10 @@ pattern unsugared = lang::or&lt;[ something-borrowed, something-blue ]&gt;</code
 <p>Here we finally discover where <strong>lists</strong> (described above) become useful.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_dereferencing_a_k_a_eager_evaluation"><a class="anchor" href="#_dereferencing_a_k_a_eager_evaluation"></a>Dereferencing (a.k.a. <em>Eager Evaluation</em>)</h3>
+</div>
+<div class="sect1">
+<h2 id="_dereferencing_a_k_a_eager_evaluation"><a class="anchor" href="#_dereferencing_a_k_a_eager_evaluation"></a>Dereferencing (a.k.a. <em>Eager Evaluation</em>)</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Given that patterns are first-class constructs, passing them as parameters can sometimes be problematic.</p>
 </div>
@@ -797,7 +812,6 @@ By placing a <code>*</code> as a prefix to a pattern, it will be evaluated, and 
 </div>
 <div class="paragraph">
 <p>Now indeed the <code>lang::or</code> will received a list-ish pattern full of string-ish patterns (the values <code>bob</code> and <code>jim</code>) and perform as expected.</p>
-</div>
 </div>
 </div>
 </div>
