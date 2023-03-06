@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Why do I want a policy engine? :: Seedwing</title>
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <script>var uiRootPath = '../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="..">
+        <img class="navbar-brand-image" src="../_/img/logo.png" alt="Seedwing"/>
+      </a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://seedwing.io" target="_blank">Project</a>
+        <a class="navbar-item" href="https://matrix.to/#/#trusification:matrix.org" target="_blank">Chat</a>
+        <a class="navbar-item" href="https://docs.seedwing.io">Documentation</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Overview</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="why.html">Why do I want a policy engine?</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../dogma/dev/foundational-concepts.html">Dogma Policy Language</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../cli/dev/index.html">Command-Line Tool</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../server/dev/index.html">Policy Server</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/dev/index.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../examples/dev/index.html">Examples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Overview</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../cli/dev/index.html">CLI</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../cli/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../dogma/dev/index.html">Dogma</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../dogma/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../examples/dev/index.html">Examples</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../examples/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../faq/dev/index.html">FAQ</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../faq/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">Overview</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../server/dev/index.html">Server</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../server/dev/index.html">dev</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="why.html">Why do I want a policy engine?</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/docs.seedwing.io/edit/main/docs/modules/ROOT/pages/why.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Why do I want a policy engine?</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to prevent the world from descending into chaos, humans have a tendency to create rules as to what is allowed and what is not.
+These rules often times describe things you cannot do ("no smoking!") and things you can do, if you meet some requirements ("you must be <em>this tall</em> to ride this rollercoaster").</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types_of_policies"><a class="anchor" href="#_types_of_policies"></a>Types of policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Policies, like rollercoasters, come in a variety of shapes and sizes.
+You may have familiarity of policies with regards to <em>access control</em> and permissions for performing certain tasks within certain applications.
+With the upswing in <em>software supply-chain security</em> concerns, we realize we can apply policy to the creation and delivery of software, to ensure that we are being explicit and intentional about these activities.</p>
+</div>
+<div class="sect2">
+<h3 id="_soft_policies"><a class="anchor" href="#_soft_policies"></a>Soft policies</h3>
+<div class="paragraph">
+<p>Your organization may have <em>soft</em> policies, regarding how we do our work towards delivering software.
+This includes pronouncements such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All code must have unit tests.</p>
+</li>
+<li>
+<p>All PRs should be reviewed by two other people prior to merging.</p>
+</li>
+<li>
+<p>Your code should be formatted according to a specific standard.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Any policy that must be enforced and verified by a human has an increased probability of not actually being applied.
+As software developers, we add hooks and constraints to our repositories to ensure these soft policies are followed as much as possible.</p>
+</div>
+<div class="paragraph">
+<p>By allowing a system to enforce policies, we convert <em>soft</em> policies into <em>hard</em> policies, and remove the opportunity to argue about them.</p>
+</div>
+<div class="paragraph">
+<p>Generally, though, soft policies revolve around the actions of humans:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How do we write code?</p>
+</li>
+<li>
+<p>How do we format code?</p>
+</li>
+<li>
+<p>How do we integrate code?</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hard_policies"><a class="anchor" href="#_hard_policies"></a>Hard policies</h3>
+<div class="paragraph">
+<p>A policy that is absolutely enforced is a <em>hard</em> policy.
+Configuring GitHub to not allow commits directly to the main branch, but instead requiring sign-offs and reviews ensures that our process is as we expect it to be.</p>
+</div>
+<div class="paragraph">
+<p>Hard policies are capable of not only evaluating what a huamn does, but evaluating the qualitative aspects of the output of the aforementioned human.</p>
+</div>
+<div class="paragraph">
+<p>With enough information conveyed alongside the code, policies can enforce aspects such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>License compatibility.</p>
+</li>
+<li>
+<p>Existance of known vulnerabilities.</p>
+</li>
+<li>
+<p>Allow/deny lists of 2rd-order transitive dependency inclusion.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ways_of_describing_policies"><a class="anchor" href="#_ways_of_describing_policies"></a>Ways of describing policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Just as rollercoasters can be made of wood or metal, with or without loops, traditional cars or dangerous-looking rigging, policies themselves can be described in a multitude of ways.</p>
+</div>
+<div class="sect2">
+<h3 id="_procedural"><a class="anchor" href="#_procedural"></a>Procedural</h3>
+<div class="paragraph">
+<p>The simplest policy is just code that manually scans and qualifies the subject of the decision.
+Imagine any shell script that walks a directory tree or analyzes a pull-request, going through file-by-file or line-by-line, looking up whatever it can, to decide if the subject is compliant with or in violation of "the policy".</p>
+</div>
+<div class="paragraph">
+<p>While effective, procedural policies can be difficult to understand, extend and rationalize.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_declarative"><a class="anchor" href="#_declarative"></a>Declarative</h3>
+<div class="quoteblock">
+<blockquote>
+I don&#8217;t <em>know</em> art, but I know what I like.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Declarative policies generally describe what "good" or "bad" looks like, and leave it up to the policy engine to figure out if the subject being evaluated fits either description.</p>
+</div>
+<div class="paragraph">
+<p>One form of declarative policy looks a lot like <em>pattern matching</em>.</p>
+</div>
+<div class="sect3">
+<h4 id="_pattern_matching"><a class="anchor" href="#_pattern_matching"></a>Pattern Matching</h4>
+<div class="paragraph">
+<p>Taking the idea of describing "good" or "bad" and matching it against a subject, we&#8217;re now thinking in terms of pattern-matching.
+A sign in front of the turnstile has a pointer set to 4 feet (121.9cm), and if a child fits under the pointer, regardless of their actual height, they&#8217;ve matched the "too short" pattern.
+Likewise, if their head is above the pointer, they&#8217;ve matched the "tall enough" pattern, and can enjoy vomiting on the rollercoaster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deriving_more_information"><a class="anchor" href="#_deriving_more_information"></a>Deriving more information</h4>
+<div class="paragraph">
+<p>Sometimes the subject being evaluated is not directly evaluatable.
+Perhaps the individual who is taller than 4 feet (121.9cm) wants to enjoy a beer prior to riding the rollercoaster, there is no direct visual match of "good" or "bad" at the concession stand.
+Instead, they present their identification, which converts the person (who presumably matches the photo on the ID) into a birthday, which can then be converted into an age, which is then used to determine "good" or "bad" with regards to alcohol sales.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_policies"><a class="anchor" href="#_using_policies"></a>Using Policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The primary usage of policies is everywhere, though <em>policy enforcement points</em> (PEPs).
+At rollercoasters, the turnstile with the height pointer is PEP.
+At the concession stand, the human checking IDs is a PEP.</p>
+</div>
+<div class="sect2">
+<h3 id="_policy_enforcement_in_the_software_development_lifecycle"><a class="anchor" href="#_policy_enforcement_in_the_software_development_lifecycle"></a>Policy enforcement in the Software Development Lifecycle</h3>
+<div class="paragraph">
+<p>A given bit of code exists through a lifecycle starting with the conception of the code all the way through to the deployment an subsequent maintenance of the application it is in service of.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Think of some code.</p>
+</li>
+<li>
+<p>Write some code.</p>
+</li>
+<li>
+<p>Borrow some other code to support this code.</p>
+</li>
+<li>
+<p>Test the code.</p>
+</li>
+<li>
+<p>Build the code.</p>
+</li>
+<li>
+<p>Build it again a few more times.</p>
+</li>
+<li>
+<p>Test the code.</p>
+</li>
+<li>
+<p>Press out a <em>gold master</em> CD of the code.</p>
+</li>
+<li>
+<p>Deploy the code.</p>
+</li>
+<li>
+<p>Notice the code is bad bad bad</p>
+</li>
+<li>
+<p>Fix the code.</p>
+</li>
+<li>
+<p>Go back quite a few steps and do it all again.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Policy enforcement is applicable almost anywhere that something <em>moves</em>.
+Just as it&#8217;s preferable to discover bugs early in the lifecycle, it&#8217;s also beneficial to enforce policy sooner rather than later, in order to provide more time (and require less effort) to remediate any discovered violations.</p>
+</div>
+<div class="paragraph">
+<p>When code moves from our fingers into the repository, policies could be enforced.
+When code passes the CI build, and needs to move towards QE or production, policy can be enforced.</p>
+</div>
+<div class="paragraph">
+<p>Each move may require <em>different</em> policies, enforced to different degrees.
+What&#8217;s okay within an upstream open-source project&#8217;s CI policy set may not be sufficient for a Fortune 1000 company moving the same code into a customer-facing production cluster.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_common_policy_enforcement_points"><a class="anchor" href="#_common_policy_enforcement_points"></a>Common Policy Enforcement Points</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selecting dependencies</p>
+</li>
+<li>
+<p>Committing code</p>
+</li>
+<li>
+<p>Pull-request merging</p>
+</li>
+<li>
+<p>Accepting the output of a CI run</p>
+</li>
+<li>
+<p>Accepting a workload for deployment</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_note_about_exceptions_to_the_policy"><a class="anchor" href="#_a_note_about_exceptions_to_the_policy"></a>A note about "exceptions to the policy"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Exceptions don&#8217;t exist, they are just a conspiracy by Big Decision to sell more policies.</p>
+</div>
+<div class="paragraph">
+<p>Any true exception that routes around policy is indistinguishable from a violated policy.</p>
+</div>
+<div class="paragraph">
+<p>In order to support "exceptional" circumstances, it is our view that exceptions should be codified as policies.</p>
+</div>
+<div class="paragraph">
+<p>For instance, the policy of "People under 4ft (121.9cm) tall cannot drink beer" is both weird and straight-forward.
+To allow for exceptions, the policy can be reformulated as "People under 4ft (121.9cm) tall cannot drink beer, unless Bob says it&#8217;s okay."</p>
+</div>
+<div class="paragraph">
+<p>Now the person who can&#8217;t ride the rollercoaster can have a beer if Bob gives the thumbs-up, and no policy violation has occurred.
+In fact, now the "exception" is even tracked and auditable.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using a modified version of the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
