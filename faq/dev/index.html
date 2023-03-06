@@ -152,6 +152,33 @@ It is open-source and contributions are always welcomed.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_does_seedwing_support_plugins"><a class="anchor" href="#_does_seedwing_support_plugins"></a>Does Seedwing support plugins?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generally-speaking, no.</p>
+</div>
+<div class="paragraph">
+<p>More broadly speaking, also no.</p>
+</div>
+<div class="paragraph">
+<p>Policies can be written using <code>external::eval&lt;&#8230;&#8203;&gt;</code>, but that can introduce brittleness into patterns, given a reliance on an external service.</p>
+</div>
+<div class="paragraph">
+<p>The lack of plugins is two-fold:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Seedwing is implemented in Rust, which is statically-linked, making plugins (and usage of <code>dlopen(3)</code>) a challenge.</p>
+</li>
+<li>
+<p>For policy portability, to ensure that any policy can execute within any instance of <code>swio</code>, a decision has been taken to include as much as possible into the core.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
