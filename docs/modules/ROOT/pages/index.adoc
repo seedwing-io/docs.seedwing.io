@@ -7,8 +7,7 @@ Seedwing Policy consists of components that may be combined or used standalone:
 * *Dogma* - a policy language.
 * *Engine* - a policy evaluation engine.
 
-image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[]
-image::https://github.com/seedwing-io/seedwing-policy/blob/6e945aec6854d3a86edd497ab47837bd15803808/docs/images/seedwing_overview.drawio.png[Seedwing Policy overview diagram showing the engine cli and server components and how the policices are ingested and applied]
+image::https://raw.githubusercontent.com/seedwing-io/seedwing-policy/main/docs/images/seedwing_overview.drawio.png[Seedwing Policy overview diagram showing the engine cli and server components and how the policices are ingested and applied]
 
 With Seedwing, you can:
 
