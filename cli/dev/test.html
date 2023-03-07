@@ -57,7 +57,16 @@
     <a class="nav-link" href="eval.html"><code>eval</code></a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="test.html"><code>test</code></a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="test_structure.html">Test-suite Structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="test_case.html">Test Cases</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="serve.html"><code>serve</code></a>
@@ -166,80 +175,7 @@
 <div class="sect2">
 <h3 id="_input_test_directory_t_dir"><a class="anchor" href="#_input_test_directory_t_dir"></a>Input test directory: <code>-t &lt;DIR&gt;</code></h3>
 <div class="paragraph">
-<p>The <code>-t &lt;DIR&gt;</code> argument specifies the a directory containing input and expected output documents.</p>
-</div>
-<div class="paragraph">
-<p>The directory structure should contain a subdirectory matching the path to the pattern under consideration.
-Within the pattern directory, each directory specifies a named test.
-Within each named test directory, at least <code>input.json</code> is required, specifying the input to consider.</p>
-</div>
-<div class="paragraph">
-<p>Specifying the output is done using an <code>output</code> file with an appropriate extension and optional content:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>output.identity</code>: The input value is expected to be unchanged as a satisfying output value.</p>
-</li>
-<li>
-<p><code>output.json</code>: A specific transformed output value is expected and contained within this file.</p>
-</li>
-<li>
-<p><code>output.any</code>: Any output is considered passing.</p>
-</li>
-<li>
-<p><code>output.none</code>: The input is expected to <strong>not</strong> satisfy the pattern.</p>
-</li>
-<li>
-<p>If no output file is present, the test is considered <strong>pending</strong> and will neither pass nor fail.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Additionally, an <code>ignored</code> file may exist, in which case all other files are ignored and the test is skipped, neither passing nor failing, as with the pending case above.</p>
-</div>
-<div class="paragraph">
-<p>For instance:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">  policy-tests/
-    base64/
-      base64/              # tests base64::base64
-        valid-document/    # named test of "valid-document"
-          input.json       # the input value
-          output.json      # the expected output value
-        validish-document/ # named test of "valid-document"
-          input.json       # the input value
-          output.any       # an output value is expected, but no assertions about its content.
-        invalid-document/  # named test of "invalid-document"
-          input.json       # the input value
-          output.none      # no output, expects the input to not satisfy the pattern</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_test_harness_test_dog"><a class="anchor" href="#_test_harness_test_dog"></a>Test harness: <code>test.dog</code></h4>
-<div class="paragraph">
-<p>Any given named test directory may include an option <code>test.dog</code> file, which must include at least a single pattern named <code>test</code>, which will actually be used to perform the test, instead of the primary pattern designated through the directory structure.</p>
-</div>
-<div class="paragraph">
-<p>It is assumed (but not required) that the two are somehow related.</p>
-</div>
-<div class="paragraph">
-<p>A test harness is generally useful for testing <em>parameterized patterns</em> which are otherwise not usually directly invokable.</p>
-</div>
-<div class="paragraph">
-<p>This argument may be specified repeatedly to accumulate multiple test directories.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_configuration_config_json_or_config_toml"><a class="anchor" href="#_configuration_config_json_or_config_toml"></a>Configuration: <code>config.json</code> or <code>config.toml</code></h4>
-<div class="paragraph">
-<p>Configuration values available through <code>config::of&lt;KEY&gt;</code> are settable per-test, through the precense of a <code>config.json</code> file.</p>
-</div>
-<div class="paragraph">
-<p>These values take precedent over any <code>[config]</code> section values from a <a href="seedwing_toml.html" class="xref page"><code>Seedwing.toml</code></a> that is in effect.</p>
-</div>
+<p>The <code>-t &lt;DIR&gt;</code> argument specifies the a directory containing the root of a tree matching the <a href="test_structure.html" class="xref page">test structure</a> and containing a suite of <a href="test_case.html" class="xref page">test cases</a>.</p>
 </div>
 </div>
 <div class="sect2">

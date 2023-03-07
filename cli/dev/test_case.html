@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>eval :: Seedwing</title>
+    <title>Individual Test Case :: Seedwing</title>
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -53,7 +53,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="verify.html"><code>verify</code></a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="eval.html"><code>eval</code></a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -63,7 +63,7 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="test_structure.html">Test-suite Structure</a>
   </li>
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="test_case.html">Test Cases</a>
   </li>
 </ul>
@@ -151,54 +151,121 @@
   <ul>
     <li><a href="index.html">CLI</a></li>
     <li>Commands</li>
-    <li><a href="eval.html"><code>eval</code></a></li>
+    <li><a href="test.html"><code>test</code></a></li>
+    <li><a href="test_case.html">Test Cases</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/swio/docs/modules/ROOT/pages/eval.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/swio/docs/modules/ROOT/pages/test_case.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page"><code>eval</code></h1>
+<h1 class="page">Individual Test Case</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>eval</code> command allows for evaluation of an input against the policy and data directories and named policy provided.</p>
+<p>Each leaf test-case directory within a test suite should contain, at a minimum, an <em>input value</em> file.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
+<h2 id="_input_values_input_json"><a class="anchor" href="#_input_values_input_json"></a>Input Values: <code>input.json</code></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_input_type_t_type"><a class="anchor" href="#_input_type_t_type"></a>Input type: <code>-t &lt;TYPE&gt;</code></h3>
 <div class="paragraph">
-<p>The <code>-t &lt;TYPE&gt;</code> argument can take one of two arguments:</p>
+<p>Within the test-case directory, a file named <code>input.json</code> must exist, containing at least an input to present to the pattern under test.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>json</code> - Specifies that the input document is in JSON format (<strong>default</strong>).</p>
-</li>
-<li>
-<p><code>yaml</code> - Specifies that the input document is in YAML format.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>This file will be presented verbatim as the input value for evaluating the policy.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_outputs"><a class="anchor" href="#_outputs"></a>Outputs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Evaluating a policy against an input can produce a variety of outputs representing both positive and negative signals.</p>
 </div>
 <div class="sect2">
-<h3 id="_input_document_i_file"><a class="anchor" href="#_input_document_i_file"></a>Input document <code>-i &lt;FILE&gt;</code></h3>
+<h3 id="_no_output_specified"><a class="anchor" href="#_no_output_specified"></a>No output specified</h3>
 <div class="paragraph">
-<p>Input can be provided via <code>STDIN</code> or using the <code>-i &lt;FILE&gt;</code> argument.</p>
+<p>If no output is specified (only an <code>input.json</code> exists), the test will be considered <em>pending</em> and neither pass nor fail.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pattern_name_n_pattern"><a class="anchor" href="#_pattern_name_n_pattern"></a>Pattern name: <code>-n &lt;PATTERN&gt;</code></h3>
+<h3 id="_anything_empty_output_any"><a class="anchor" href="#_anything_empty_output_any"></a>Anything: empty <code>output.any</code></h3>
 <div class="paragraph">
-<p>The pattern to evaluate the input document against must be specified using the <code>-n &lt;PATTERN&gt;</code> argument.</p>
+<p>If while writing the test you do not desire to specify concretely what the output should be, but rather that <strong>any</strong> output is considered a passing result, an empty <code>output.any</code> file will indicate this.</p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Not specifying concrete output may be useful in the short-term, but may eventually end up hiding bugs or edge-cases, and ultimately represents a weak test-case.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nothing_empty_output_none"><a class="anchor" href="#_nothing_empty_output_none"></a>Nothing: empty <code>output.none</code></h3>
+<div class="paragraph">
+<p>When attempting to perform <em>negative</em> tests, to prove that a given input will <em>fail</em> a policy evaluation, an empty <code>output.none</code> can be used.</p>
+</div>
+<div class="paragraph">
+<p>The existence of this file signals to the test engine that the test will be considered <em>passing</em> if the evaluation of the input value results in <em>no output</em>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_simple_identity_empty_output_identity"><a class="anchor" href="#_simple_identity_empty_output_identity"></a>Simple identity: empty <code>output.identity</code></h3>
+<div class="paragraph">
+<p>For gate-like policies which do not transform an input, but rather determine if it does or does not pass policy, an empty <code>output.identity</code> file signals to the engine that the output <em>must</em> be exactly the same as the input.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transformation_output_json"><a class="anchor" href="#_transformation_output_json"></a>Transformation: <code>output.json</code></h3>
+<div class="paragraph">
+<p>If the policy is expected to produce output different from the input, the expected output can be represented in an <code>output.json</code> file.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_harness_test_dog"><a class="anchor" href="#_test_harness_test_dog"></a>Test Harness: <code>test.dog</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the input value is presented to the pattern indicated by the parent directory structure.</p>
+</div>
+<div class="paragraph">
+<p>Parameterized types cannot be directly invoked due to needing to provide bindings for the parameters.
+To enable testing parameterized types, a <code>test.dog</code> may exist.</p>
+</div>
+<div class="paragraph">
+<p>The <code>test.dog</code> file must include <em>at least</em> a pattern named <code>test</code>.
+There is no restriction on other patterns within the file, if more are needed to effectively express the test-case.</p>
+</div>
+<div class="paragraph">
+<p>When the test-case is executed, instead of presenting the input value to the pattern described by the directory structure, it will be provided to the <code>test</code> pattern defined within the test harness.</p>
+</div>
+<div class="paragraph">
+<p>All other input and output rules described above still apply.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_config_toml"><a class="anchor" href="#_configuration_config_toml"></a>Configuration: <code>config.toml</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As with <a href="seedwing_toml.html" class="xref page"><code>Seedwing.toml</code></a>, configuration values can be provided for access through the <code>config::of&lt;&#8230;&#8203;&gt;</code> core pattern using an optional <code>config.toml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>Any configuration within the test-case-local <code>config.toml</code> will override any sourced from any applicable <code>Seedwing.toml</code> file.</p>
 </div>
 </div>
 </div>

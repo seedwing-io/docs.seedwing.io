@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>eval :: Seedwing</title>
+    <title>Test Structure :: Seedwing</title>
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -53,14 +53,14 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="verify.html"><code>verify</code></a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="eval.html"><code>eval</code></a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="test.html"><code>test</code></a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="3">
+  <li class="nav-item is-current-page" data-depth="3">
     <a class="nav-link" href="test_structure.html">Test-suite Structure</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -151,54 +151,67 @@
   <ul>
     <li><a href="index.html">CLI</a></li>
     <li>Commands</li>
-    <li><a href="eval.html"><code>eval</code></a></li>
+    <li><a href="test.html"><code>test</code></a></li>
+    <li><a href="test_structure.html">Test-suite Structure</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/swio/docs/modules/ROOT/pages/eval.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/swio/docs/modules/ROOT/pages/test_structure.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page"><code>eval</code></h1>
+<h1 class="page">Test Structure</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>eval</code> command allows for evaluation of an input against the policy and data directories and named policy provided.</p>
+<p>A single root directory can contain an entire suite of tests, arranged in a hierarchy mirroring the hierarchy of policies.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
+<h2 id="_directory_per_pattern"><a class="anchor" href="#_directory_per_pattern"></a>Directory per pattern</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_input_type_t_type"><a class="anchor" href="#_input_type_t_type"></a>Input type: <code>-t &lt;TYPE&gt;</code></h3>
 <div class="paragraph">
-<p>The <code>-t &lt;TYPE&gt;</code> argument can take one of two arguments:</p>
+<p>For a given pattern-under-test, a directory tree should exist under the root matching it&#8217;s path.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>json</code> - Specifies that the input document is in JSON format (<strong>default</strong>).</p>
-</li>
-<li>
-<p><code>yaml</code> - Specifies that the input document is in YAML format.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_input_document_i_file"><a class="anchor" href="#_input_document_i_file"></a>Input document <code>-i &lt;FILE&gt;</code></h3>
 <div class="paragraph">
-<p>Input can be provided via <code>STDIN</code> or using the <code>-i &lt;FILE&gt;</code> argument.</p>
+<p>For instance, if a pattern of <code>mycorp::licenses::allowed</code> is being tested, the following structure is expect:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">tests/
+  mycorp/
+    licenses/
+      allowed/ # pattern being tested
+        ..</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_pattern_name_n_pattern"><a class="anchor" href="#_pattern_name_n_pattern"></a>Pattern name: <code>-n &lt;PATTERN&gt;</code></h3>
 <div class="paragraph">
-<p>The pattern to evaluate the input document against must be specified using the <code>-n &lt;PATTERN&gt;</code> argument.</p>
+<p>Within that leaf directory, an additional directory should be created for each test-case.</p>
 </div>
+<div class="paragraph">
+<p>Generally speaking, the test-case directory should be named in a descriptive manner.
+Additionally, it is useful to not only test positive cases, but also testing <strong>known violations</strong> of the policy.</p>
+</div>
+<div class="paragraph">
+<p>For instance, to test both allowed and disallowed licenses, one may create a pair of directories:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">tests/
+  mycorp/
+    licenses/
+      allowed/           # pattern being tested
+        al2-allowed/     # policy should allow Apache License 2
+          ..
+        gpl3-disallowed/ # policy should not allow GPL3
+          ..</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Within each test-case directory, the contents follow the <a href="test_case.html" class="xref page">test-case definition</a>.</p>
 </div>
 </div>
 </div>
