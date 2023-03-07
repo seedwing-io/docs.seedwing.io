@@ -109,10 +109,10 @@ What's okay within an upstream open-source project's CI policy set may not be su
 === Common Policy Enforcement Points
 
 1. Selecting dependencies
-1. Committing code
-1. Pull-request merging
-1. Accepting the output of a CI run
-1. Accepting a workload for deployment
+2. Committing code
+3. Pull-request merging
+4. Accepting the output of a CI run
+5. Accepting a workload for deployment
 
 == A note about "exceptions to the policy"
 
