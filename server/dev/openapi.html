@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Seedwing Policy Server :: Seedwing</title>
+    <title>OpenAPI :: Seedwing</title>
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -40,10 +40,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">Server</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="openapi.html">OpenAPI (Swagger)</a>
   </li>
 </ul>
@@ -117,27 +117,22 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Server</a></li>
+    <li><a href="openapi.html">OpenAPI (Swagger)</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/server/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/seedwing-io/seedwing-policy/edit/main/server/docs/modules/ROOT/pages/openapi.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Seedwing Policy Server</h1>
+<h1 class="page">OpenAPI</h1>
 <div class="paragraph">
-<p>The Seedwing Policy Server provides a collection of HTTP endpoints to allow remote evaluation of your policy patterns.</p>
+<p>Each server includes an OpenAPI specification for the hosted policies, under the <code>/openapi.json</code> path.</p>
 </div>
 <div class="paragraph">
-<p>To run the server, you can use the <code>swio</code> tool, or using pre-made docker images.</p>
-</div>
-<div class="paragraph">
-<p>We also host a policy server at <a href="https://playground.seedwing.io" class="bare">https://playground.seedwing.io</a>, which you can use to experiment with policies.</p>
-</div>
-<div class="paragraph">
-<p>To run the policy server on <a href="https://kubernetes.io">Kubernetes</a>, have a look at the <a href="https://github.com/seedwing-io/playground.seedwing.io">github repository</a> for the playground for example manifests.</p>
+<p>Additionally, a UI for exploring the OpenAPI exists at <code>/openapi</code>.</p>
 </div>
 </article>
   </div>
