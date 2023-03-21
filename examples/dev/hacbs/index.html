@@ -149,7 +149,7 @@
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">pattern required-tasks = {
   predicate: {
     buildConfig: {
-      tasks: lang::map&lt;self.ref.name&gt; | list::contains-all&lt;required-taskrefs&gt;
+      tasks: list::map&lt;self.ref.name&gt; | list::contains-all&lt;required-taskrefs&gt;
     }
   }
 }

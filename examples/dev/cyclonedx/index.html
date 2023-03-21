@@ -222,9 +222,9 @@
 /// produce an OpenVEX document for it.
 pattern not-affected =
   cyclonedx::component-purls
-  | lang::map&lt;uri::purl&gt;
-  | lang::map&lt;osv::scan-purl&gt;
-  | lang::map&lt;openvex::from-osv&gt;
+  | list::map&lt;uri::purl&gt;
+  | list::map&lt;osv::scan-purl&gt;
+  | list:map&lt;openvex::from-osv&gt;
   | list::none&lt;openvex::affected&gt;</code></pre>
 </div>
 </div>
