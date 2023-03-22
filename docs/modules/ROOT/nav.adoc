@@ -1,7 +1,0 @@
-* xref:docs::index.adoc[Overview]
-* xref:docs::why.adoc[Why do I want a policy engine?]
-* xref:dogma::foundational-concepts.adoc[Dogma Policy Language]
-* xref:cli::index.adoc[Command-Line Tool]
-* xref:server::index.adoc[Policy Server]
-* xref:faq::index.adoc[FAQ]
-* xref:examples::index.adoc[Examples]

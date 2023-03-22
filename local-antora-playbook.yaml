@@ -1,22 +1,14 @@
 site:
   title: Seedwing
-  start_page: docs::index.adoc
+  start_page: seedwing:ROOT:index.adoc
 
 content:
   sources:
-    - url: ./
-      branches: main
-      start_path: docs
     - url: ../seedwing-policy
-      branches: main
-      start_paths:
-        - docs/faq
-        - docs/dogma
-        - docs/examples
-        - swio/docs
-        - server/docs
+      branches: HEAD
+      start_path: docs
 
-ui: 
+ui:
   bundle:
     url: https://github.com/seedwing-io/seedwing-antora-ui/releases/download/v0.1.2/ui-bundle.zip
     snapshot: true
