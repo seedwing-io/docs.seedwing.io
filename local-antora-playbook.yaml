@@ -7,7 +7,15 @@ content:
     - url: ../seedwing-policy
       branches: HEAD
       start_path: docs
-
+        #    - url: ../seedwing-java-example
+        #      branches: main
+        #      start_path: docs
+        #    - url: ../seedwing-golang-example
+        #      branches: main
+        #      start_path: docs
+    - url: ../seedwing-tekton-example
+      branches: main
+      start_path: docs
 ui:
   bundle:
     url: https://github.com/seedwing-io/seedwing-antora-ui/releases/download/v0.1.2/ui-bundle.zip
