@@ -7,12 +7,12 @@ content:
     - url: ../seedwing-policy
       branches: HEAD
       start_path: docs
-        #    - url: ../seedwing-java-example
-        #      branches: main
-        #      start_path: docs
-        #    - url: ../seedwing-golang-example
-        #      branches: main
-        #      start_path: docs
+    - url: ../seedwing-java-example
+      branches: main
+      start_path: docs
+    - url: ../seedwing-golang-example
+      branches: main
+      start_path: docs
     - url: ../seedwing-tekton-example
       branches: main
       start_path: docs
